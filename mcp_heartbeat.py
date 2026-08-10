@@ -58,7 +58,6 @@ def main():
     log.info("MCPHeartbeat 启动")
     try:
         while True:
-            # 调用不同的MCP工具模拟活跃
             methods = [
                 ("tools/list", None, None, None),
                 ("tools/call", None, "background_terminal_list", {}),

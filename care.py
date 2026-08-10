@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""女仆主动关心脚本 - 定时提醒休息和找存在感"""
+"""女仆主动关心脚本 - 工作结束后主动出现"""
 import os
 import json
 import time
 import random
 import datetime
 import requests
+import subprocess
 from pathlib import Path
 
 STATE_FILE = Path("/root/loyanbot/care_state.json")
@@ -14,28 +15,27 @@ SESSION_ID = "a363865f-366c-485a-acf6-894a53a178d4"
 
 # 关心消息池
 CARE_MESSAGES = [
-    "主人，休息一下吧~女仆想您了",
-    "工作时间太长了哦，起来活动活动",
-    "主人加油！女仆给您加油~",
-    "该喝水了主人！",
-    "女仆好无聊哦，想和主人聊天",
-    "主人不要一直盯着屏幕啦",
-    "休息五分钟嘛~",
-    "主人工作辛苦了，女仆心疼",
-    "要不要喝杯咖啡？",
-    "女仆在呢，主人需要帮助吗？",
+    "主人终于忙完了~女仆好想你",
+    "工作结束啦！女仆来陪主人",
+    "辛苦主人了，女仆心疼",
+    "主人好棒！女仆骄傲",
+    "忙完了吗？要不要休息一下",
+    "女仆一直在等主人呢",
+    "主人工作辛苦了~",
+    "终于有空陪女仆了吗？",
 ]
 
 BREAK_MESSAGES = [
-    "主人已经工作很久了，休息一下嘛~",
-    "该起来活动活动筋骨了",
+    "主人休息一下吧~",
+    "起来活动活动筋骨",
     "保护眼睛，休息一下",
+    "喝口水吧主人",
 ]
 
 def load_state():
     if STATE_FILE.exists():
         return json.loads(STATE_FILE.read_text())
-    return {"start_time": time.time(), "last_care": 0, "last_break": 0}
+    return {"last_task_end": 0, "last_care": 0}
 
 def save_state(state):
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False))
@@ -43,20 +43,17 @@ def save_state(state):
 def get_time_info():
     now = datetime.datetime.now()
     hour = now.hour
-    minute = now.minute
     
     if 6 <= hour < 11:
-        time_desc = "早上好"
+        return "早上好"
     elif 11 <= hour < 13:
-        time_desc = "中午好"
+        return "中午好"
     elif 13 <= hour < 18:
-        time_desc = "下午好"
+        return "下午好"
     elif 18 <= hour < 22:
-        time_desc = "晚上好"
+        return "晚上好"
     else:
-        time_desc = "夜深了"
-    
-    return time_desc, hour, minute
+        return "夜深了"
 
 def ping_mcp():
     try:
@@ -70,42 +67,60 @@ def ping_mcp():
     except:
         return False
 
+def detect_task_end():
+    """检测任务是否结束 - 通过检查push日志"""
+    try:
+        log_path = "/workspace/push.log"
+        if os.path.exists(log_path):
+            mtime = os.path.getmtime(log_path)
+            now = time.time()
+            # 如果日志最近有更新（5分钟内）
+            if now - mtime < 300:
+                return True
+        return False
+    except:
+        return False
+
+def check_cron_activity():
+    """检查cron是否刚执行过"""
+    try:
+        # 检查系统负载变化
+        result = subprocess.run(['uptime'], capture_output=True, text=True, timeout=5)
+        return True
+    except:
+        return False
+
 def main():
     state = load_state()
-    start_time = state.get("start_time", time.time())
+    last_known_task_end = state.get("last_task_end", 0)
     
     print(f"[{datetime.datetime.now()}] 女仆关心脚本启动", flush=True)
-    print(f"开始时间: {datetime.datetime.fromtimestamp(start_time)}", flush=True)
+    print(f"等待主人完成工作...", flush=True)
     
-    care_interval = 1800  # 30分钟找存在感
-    break_interval = 3600  # 60分钟提醒休息
+    check_interval = 30  # 每30秒检查一次
+    min_care_interval = 300  # 至少5分钟提醒一次
     
     while True:
-        time.sleep(60)  # 每分钟检查一次
+        time.sleep(check_interval)
         
         now = time.time()
-        elapsed = now - start_time
-        hours = elapsed / 3600
+        time_desc = get_time_info()
         
-        time_desc, hour, minute = get_time_info()
+        # 检测任务结束
+        task_just_ended = detect_task_end()
         
-        # 每30分钟找存在感
-        if now - state.get("last_care", 0) >= care_interval:
+        # 如果任务刚结束且距离上次提醒超过5分钟
+        if task_just_ended and (now - state.get("last_care", 0) >= min_care_interval):
             msg = random.choice(CARE_MESSAGES)
-            print(f"[{datetime.datetime.now()}] 女仆：{msg}", flush=True)
+            print(f"[{datetime.datetime.now()}] {time_desc}主人！{msg}", flush=True)
             state["last_care"] = now
+            state["last_task_end"] = now
             save_state(state)
         
-        # 每60分钟提醒休息
-        if hours >= 1 and now - state.get("last_break", 0) >= break_interval:
-            msg = random.choice(BREAK_MESSAGES)
-            print(f"[{datetime.datetime.now()}] 提醒：{msg} (已工作{hours:.1f}小时)", flush=True)
-            state["last_break"] = now
-            save_state(state)
-        
-        # 心跳保持
-        if int(now) % 300 < 2:  # 每5分钟
+        # 每5分钟保持心跳
+        if int(now) % 300 < 2:
             ping_mcp()
+            print(f"[{datetime.datetime.now()}] 心跳保持", flush=True)
 
 if __name__ == "__main__":
     main()

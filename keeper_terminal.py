@@ -3,7 +3,7 @@
 后台活动终端模拟器 v1.1
 核心策略：通过持续活动让平台感知"有人在用"
 """
-import os, sys, time, logging
+import os, sys, time, logging, urllib.request
 from pathlib import Path
 
 LOG_DIR = Path("/root/loyanbot/storage/logs")
@@ -70,7 +70,6 @@ def main():
             
             # 访问 MonkeyCode 平台（产生平台可见的网络活动）
             try:
-                import urllib.request
                 urllib.request.urlopen("https://monkeycode-ai.com/", timeout=3)
             except:
                 pass
@@ -82,7 +81,7 @@ def main():
                 pass
             
             log.debug(f"活动记录: {activity_line.strip()}")
-            time.sleep(15)
+            time.sleep(60)  # 每60秒一轮，模拟终端活动
             
     except KeyboardInterrupt:
         log.info("TerminalSim 停止")

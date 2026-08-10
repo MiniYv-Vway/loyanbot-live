@@ -3,3 +3,6 @@
 2026-08-11 07:33:40 - [Adapter] - INFO - [QQOfficial.bot] - Gateway 接入点获取成功: wss://api.sgroup.qq.com/websocket
 2026-08-11 07:33:40 - [Adapter] - INFO - [QQOfficial.gateway] - WebSocket 连接成功
 2026-08-11 07:33:40 - [Adapter] - INFO - [QQOfficial.gateway] - 心跳间隔: 41.25s
+2026-08-11 07:48:23 - [Core] - INFO - [Pipeline] - [群聊消息] 收到群聊消息 | 用户ID: 54496A8870BF4288635BAD352B701EB8 | 消息类型: 群聊 | 消息: 在吗 | 群组ID: 005A198FF879943E397E0CF8E75775B2
+2026-08-11 07:48:24 - [Adapter] - INFO - [Send] [qq_official-test] - [消息发送] 成功发送群聊消息[qq_official:test:7811] | 目标: 005A198FF879943E397E0CF8E75775B2 | 内容预览: 在呢在呢～ 随时在线为你服务！
+2026-08-11 07:48:24 - [Core] - INFO - [Pipeline] - [自动回复] 关键词 '在吗' → 已回复用户 54496A8870BF4288635BAD352B701EB8

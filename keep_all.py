@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """综合保活 - 多策略并发保活"""
-import os, sys, time, logging, subprocess, urllib.request, json
+import os, sys, time, logging, urllib.request, json, fcntl
 from pathlib import Path
 
+PID_FILE = Path("/root/loyanbot/storage/logs/keep_all.pid")
+LOCK_FILE = Path("/root/loyanbot/storage/logs/keep_all.lock")
 LOG_DIR = Path("/root/loyanbot/storage/logs")
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-PID_FILE = LOG_DIR / "keep_all.pid"
 AGENT_TOKEN = "agent_access_930591ae-b8ee-4b2f-b5ad-1779f2d98207"
 MCP_TASK_ID = "a363865f-366c-485a-acf6-894a53a178d4"
 AGENT_API_URL = "http://127.0.0.1:65510/mcp"
@@ -19,6 +19,22 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger("KeepAll")
+
+def acquire_lock():
+    try:
+        f = open(LOCK_FILE, 'w')
+        fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        f.write(str(os.getpid()))
+        f.flush()
+        return f
+    except IOError:
+        log.info("其他实例正在运行，退出")
+        sys.exit(0)
+
+def release_lock(f):
+    fcntl.flock(f, fcntl.LOCK_UN)
+    f.close()
+    LOCK_FILE.unlink(missing_ok=True)
 
 def mcp_call(tool_name, tool_args):
     payload = {
@@ -67,27 +83,26 @@ def io_activity():
         pass
 
 def main():
+    lock = acquire_lock()
     PID_FILE.write_text(str(os.getpid()))
     log.info("KeepAll 启动 - 综合保活")
     try:
         while True:
-            # MCP工具调用（每5秒一次）
             mcp_call("background_terminal_list", {})
-            time.sleep(2)
+            time.sleep(1)
             mcp_call("request_preview", {"port": 8000})
-            time.sleep(2)
+            time.sleep(1)
             mcp_call("background_terminal_create", {"command": "echo keepalive", "timeout": 3000})
             time.sleep(1)
-            # 外部网络活动（每10秒一次）
             external_ping()
-            # 磁盘IO活动（每5秒一次）
             io_activity()
             log.info("保活周期完成")
-            time.sleep(5)
+            time.sleep(7)
     except KeyboardInterrupt:
         log.info("KeepAll 停止")
     finally:
         PID_FILE.unlink(missing_ok=True)
+        release_lock(lock)
 
 if __name__ == "__main__":
     main()

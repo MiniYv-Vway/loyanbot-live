@@ -1,0 +1,26 @@
+[plugin]
+name        = "AI 聊天"
+version     = "1.0.0"
+author      = "GracyBot"
+description = "AI 智能聊天，支持上下文对话"
+
+[handler]
+entry       = "handle_ai"
+
+[trigger]
+commands       = ["/ai", "/切换模型", "/模型", "/查看模型", "/model", "/tts", "/切换语音", "/新增人设", "/+persona", "/删除人设", "/-persona", "/查看人设", "/persona=", "/切换人设", "/persona", "///"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+
+[trigger.command_descriptions]
+"/ai"        = "AI 聊天：/ai <你想说的话>"
+"/切换模型"   = "切换模型：/切换模型 7b 或 /切换模型 14b"
+"/查看模型"   = "查看当前使用的 AI 模型"
+"/tts"       = "语音朗读：/tts <要朗读的内容>（音色跟随人设）"
+"/切换语音"   = "手动选音色：/切换语音 甜美 或 /切换语音 青年男"
+"///"        = "清除当前会话的 AI 聊天上下文"
+"/新增人设"   = "新增人设：/新增人设 <名称> <描述>"
+"/删除人设"   = "删除自定义人设"
+"/查看人设"   = "查看所有可用人设"
+"/切换人设"   = "切换人设：/切换人设 <名称>"

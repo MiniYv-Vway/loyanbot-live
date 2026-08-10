@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ai-bot-frontend</title>
+    <script type="module" crossorigin src="/assets/index-BZpaDg3c.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-M0oDzQ_3.js">
+    <link rel="modulepreload" crossorigin href="/assets/animation-57XSSlRJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-5UKZ8m7v.js">
+    <link rel="modulepreload" crossorigin href="/assets/charts-DfJXZQI6.js">
+    <link rel="modulepreload" crossorigin href="/assets/state-CCyr6cvp.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BBBBjLnj.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+    (function() {
+      const style = document.createElement('style');
+      style.textContent = '.sticker-nav-btn{display:flex;align-items:center;gap:12px;width:calc(100% - 32px);margin:2px 16px 0;padding:12px 16px;border:none;border-radius:12px;background:linear-gradient(135deg,#f0a8d0,#d9b0ff);color:white;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s;text-decoration:none}.sticker-nav-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(217,176,255,0.4)}';
+      document.head.appendChild(style);
+      const observer = new MutationObserver(() => {
+        const nav = document.querySelector('aside nav');
+        if (nav && !document.querySelector('.sticker-nav-btn')) {
+          const btn = document.createElement('a');
+          btn.className = 'sticker-nav-btn';
+          btn.href = '/stickers';
+          btn.innerHTML = '🎨 表情调整';
+          const lastItem = nav.lastElementChild;
+          if (lastItem) nav.insertBefore(btn, lastItem.nextSibling);
+          else nav.appendChild(btn);
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    })();
+    </script>
+  </body>
+</html>

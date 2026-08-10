@@ -1,0 +1,101 @@
+"""装饰器 — 插件事件绑定"""
+
+from loyan.core.decorators import (
+    on_command, on_regex, on_keyword,
+    loyan_plugin, plugin_handler,
+    require_permission, require_master, require_admin,
+    rate_limit, cooldown,
+    with_session, async_retry, background,
+)
+from loyan.core.decorators.registration import on_fallback, DECORATOR_COMMAND_REGISTRY
+from loyan.core.decorators.logger import with_logger, log_attrs
+from loyan.core.decorators.context import PluginContext
+
+
+# ── @on_event ──
+
+def on_event(event_type, priority: int = 0):
+    """插件订阅业务事件（独立注册，不经命令注册中心）
+
+    用法:
+        @on_event("group_member_joined")
+        @plugin_handler
+        async def on_join(ev: BusinessEvent): ...
+
+    参数:
+        event_type: 事件名（如 "group_member_joined"）或 EventType 枚举
+        priority:   优先级，越高越先执行（默认 0）
+    """
+    # 兼容 EventType 枚举传法
+    if hasattr(event_type, "value"):
+        event_type = event_type.value
+    key = f"biz:{event_type}"
+
+    def decorator(func):
+        # 函数内延迟 import：核心 bus.py 未就绪时不影响插件加载
+        from loyan.core.event import event_bus
+        event_bus.subscribe(key, func, priority=priority)
+        return func
+
+    return decorator
+
+
+__all__ = [
+    "on_command", "on_regex", "on_keyword",
+    "loyan_plugin", "plugin_handler",
+    "require_permission", "require_master", "require_admin",
+    "rate_limit", "cooldown",
+    "with_session", "async_retry", "background",
+    "with_logger", "log_attrs",
+    "on_fallback", "DECORATOR_COMMAND_REGISTRY",
+    "on_event",
+    "PluginContext",
+    "list_plugins", "enable_plugin", "disable_plugin", "reload_plugin",
+    "get_reading", "set_reading", "clear_reading",
+]
+
+
+# ── 插件管理透传（薄转发，无业务逻辑） ──
+
+async def _await_maybe(result):
+    import inspect
+    if inspect.iscoroutine(result):
+        return await result
+    return result
+
+
+async def list_plugins():
+    from loyan.core.plugin_manager import plugin_manager
+    return await _await_maybe(plugin_manager.list_plugins())
+
+
+async def enable_plugin(name: str):
+    from loyan.core.plugin_manager import plugin_manager
+    return await _await_maybe(plugin_manager.enable_plugin(name))
+
+
+async def disable_plugin(name: str):
+    from loyan.core.plugin_manager import plugin_manager
+    return await _await_maybe(plugin_manager.disable_plugin(name))
+
+
+async def reload_plugin(name: str):
+    from loyan.core.plugin_manager import plugin_manager
+    return await _await_maybe(plugin_manager.reload_plugin(name))
+
+
+# ── 共享阅读状态透传（游戏/小说等插件翻页用） ──
+
+def get_reading(user_id: str):
+    from loyan.plugins.core.reading import get_reading as _get
+    return _get(user_id)
+
+
+def set_reading(user_id: str, ctx: dict):
+    from loyan.plugins.core.reading import set_reading as _set
+    return _set(user_id, ctx)
+
+
+def clear_reading(user_id: str):
+    from loyan.plugins.core.reading import clear_reading as _clear
+    return _clear(user_id)

@@ -1,0 +1,15 @@
+[plugin]
+name        = "白名单系统"
+version     = "1.0.0"
+author      = "GracyBot用户"
+description = "白名单申请与审核系统"
+
+[handler]
+entry       = "handle_apply"
+
+[trigger]
+commands       = ["/申请", "/apply", "/whitelist", "/approve", "/reject", "/addwhitelist", "/removewhitelist"]
+chat_type      = ["private", "group"]
+permission     = "all"
+is_at_required = false
+command_descriptions = {"/apply 或 /申请" = "提交白名单申请", "/whitelist" = "查看白名单列表(仅管理员)", "/approve <用户ID>" = "通过白名单申请(仅管理员)", "/reject <用户ID>" = "拒绝白名单申请(仅管理员)", "/addwhitelist <用户ID> [昵称]" = "直接添加用户到白名单(仅管理员)", "/removewhitelist <用户ID>" = "移除用户白名单(仅管理员)"}

@@ -1,0 +1,867 @@
+"""LoyanBot 插件管理器 — 负责扫描、加载、注册、匹配、重载"""
+
+import asyncio
+import os
+import sys
+import json
+import shutil
+import threading
+import importlib.util
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Dict, List, Callable, Optional, Set, Tuple
+import re
+from loyan.core.utils import logger
+from loyan.core.tools.validator import load_plugin_toml, TOMLPluginError
+from loyan.core.tools.paths import get_plugins_dir, get_disabled_plugins_path, get_res_config_dir, get_project_root, get_user_plugins_dir
+from loyan.core.decorators.registration import (
+    DECORATOR_COMMAND_REGISTRY,
+    FALLBACK_HANDLERS,
+    _register_decorated_function,
+    _register_fallback_function,
+    clear_registry,
+)
+from loyan.core.lifecycle import lifecycle, LifecycleEvent
+
+
+class PluginManager:
+    """插件管理器单例 — 扫描、加载、注册、匹配、重载、禁用"""
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        # 构造注入：显式传入依赖时创建独立实例（可测试）；
+        # 无参构造回落模块级单例（向后兼容，调用方零改动）
+        injected = bool(args) or any(v is not None for v in kwargs.values())
+        if injected:
+            return super().__new__(cls)
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __init__(self, config_manager=None, logger=None, logger_manager=None):
+        if config_manager is None:
+            from loyan.core.config_manager import config_manager as _default_config_manager
+            config_manager = _default_config_manager
+        if logger is None:
+            from loyan.core.utils import logger as _default_logger
+            logger = _default_logger
+        if logger_manager is None:
+            from loyan.core.logger_manager import logger_manager as _default_logger_manager
+            logger_manager = _default_logger_manager
+        self.config_manager = config_manager
+        self.logger = logger
+        self.logger_manager = logger_manager
+        self._initialized = False
+        self._plugin_configs: Dict[str, dict] = {}
+        self._registry: List[Dict] = []
+        self._versions: Dict[str, str] = {}
+        self._dep_graph: Dict[str, List[str]] = {}
+        self._ready_hooks: List[Callable] = []
+        self._visited: Set[str] = set()
+        self._watcher_task: Optional[asyncio.Task] = None
+        self._watcher_stop: Optional[threading.Event] = None
+        self._watcher_roots: List[str] = []
+        self._watcher_busy = False
+
+    # ── 属性访问器（供外部只读访问） ──
+
+    @property
+    def registry(self) -> List[Dict]:
+        """已注册插件的完整列表"""
+        return self._registry
+
+    @property
+    def versions(self) -> Dict[str, str]:
+        """已加载插件的版本号映射"""
+        return self._versions
+
+    # ── 业务事件发送 ──
+
+    async def _emit(self, event_name: str, payload: dict) -> None:
+        """发送业务事件（await；事件类型延迟导入避免循环，失败不影响主流程）"""
+        try:
+            from loyan.core.event import EventType, BusinessEvent, event_bus
+            await event_bus.publish_business(
+                BusinessEvent(type=getattr(EventType, event_name), payload=payload, source="plugin_manager")
+            )
+        except Exception as e:
+            self.logger.error(f"emit {event_name} failed: {e}")
+
+    def _emit_async(self, event_name: str, payload: dict) -> None:
+        """同步上下文发送业务事件（fire-and-forget）"""
+        try:
+            asyncio.create_task(self._emit(event_name, payload))
+        except Exception as e:
+            self.logger.error(f"emit {event_name} failed: {e}")
+
+    # ── 版本工具 ──
+
+    def parse_version(self, version: str) -> List[int]:
+        """解析版本号字符串为整数列表"""
+        try:
+            parts = re.findall(r'\d+', version)
+            return [int(part) for part in parts]
+        except Exception:
+            return [0]
+
+    def compare_versions(self, version1: str, version2: str) -> int:
+        """版本号比较：1=v1>v2, 0=相等, -1=v1<v2"""
+        v1 = self.parse_version(version1)
+        v2 = self.parse_version(version2)
+        max_len = max(len(v1), len(v2))
+        v1 += [0] * (max_len - len(v1))
+        v2 += [0] * (max_len - len(v2))
+        for i in range(max_len):
+            if v1[i] > v2[i]:
+                return 1
+            elif v1[i] < v2[i]:
+                return -1
+        return 0
+
+    # ── 禁用列表 ──
+
+    @staticmethod
+    def _get_disabled_file() -> str:
+        return get_disabled_plugins_path()
+
+    def load_disabled_plugins(self) -> Set[str]:
+        """从 JSON 加载已禁用插件名称集合"""
+        path = self._get_disabled_file()
+        try:
+            if os.path.exists(path):
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    return set(data.get("disabled", []))
+        except Exception:
+            pass
+        return set()
+
+    def save_disabled_plugins(self, disabled: Set[str]) -> None:
+        """保存禁用插件集合到 JSON"""
+        path = self._get_disabled_file()
+        try:
+            with open(path, 'w', encoding='utf-8') as f:
+                json.dump({"disabled": sorted(disabled)}, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            self.logger.error(f" 保存禁用列表失败: {e}")
+
+    # ── 插件生命周期管理 ──
+
+    def _find_plugin_dir(self, plugin_name: str) -> Optional[str]:
+        """按目录名查找插件目录（用户目录优先）"""
+        for root in (get_user_plugins_dir(), get_plugins_dir()):
+            candidate = os.path.join(root, plugin_name)
+            if os.path.isdir(candidate) and os.path.exists(os.path.join(candidate, "metadata.toml")):
+                return candidate
+        return None
+
+    def list_plugins(self) -> List[Dict]:
+        """列出已安装插件：{name, version, enabled, source, path}"""
+        disabled = self.load_disabled_plugins()
+        plugins = []
+        seen = set()
+        for root, source in ((get_plugins_dir(), "system"), (get_user_plugins_dir(), "user")):
+            if not os.path.isdir(root):
+                continue
+            for dir_name in sorted(os.listdir(root)):
+                plugin_dir = os.path.join(root, dir_name)
+                toml_path = os.path.join(plugin_dir, "metadata.toml")
+                if dir_name in seen or not os.path.isdir(plugin_dir) or not os.path.exists(toml_path):
+                    continue
+                seen.add(dir_name)
+                version = self._versions.get(dir_name, "")
+                if not version:
+                    try:
+                        version = load_plugin_toml(toml_path, plugin_dir).get("version", "")
+                    except Exception:
+                        version = ""
+                plugins.append({
+                    "name": dir_name,
+                    "version": version or "unknown",
+                    "enabled": dir_name not in disabled,
+                    "source": source,
+                    "path": plugin_dir,
+                })
+        return plugins
+
+    def enable_plugin(self, name: str) -> bool:
+        """启用插件：从禁用集合移除 + 重载"""
+        disabled = self.load_disabled_plugins()
+        if name in disabled:
+            disabled.discard(name)
+            self.save_disabled_plugins(disabled)
+        if not self._find_plugin_dir(name):
+            self.logger.error(f" 未找到插件 {name}")
+            return False
+        ok = self.reload_plugin(name)
+        if ok:
+            self._emit_async("PLUGIN_ENABLED", {"name": name})
+        return ok
+
+    def disable_plugin(self, name: str) -> bool:
+        """禁用插件：写入禁用集合 + 卸载运行时"""
+        if not self._find_plugin_dir(name):
+            self.logger.error(f" 未找到插件 {name}")
+            return False
+        disabled = self.load_disabled_plugins()
+        disabled.add(name)
+        self.save_disabled_plugins(disabled)
+        found = self._find_registry_entry(name)
+        if found:
+            self._registry.remove(found)
+            for key in (name, found.get("name", ""), os.path.basename(found.get("plugin_path", ""))):
+                self._versions.pop(key, None)
+            self._purge_plugin_modules(name)
+            self._clean_decorator_entries(name)
+            if found.get("name") != name:
+                self._clean_decorator_entries(found["name"])
+            self._emit_async("PLUGIN_UNLOADED", {"name": name})
+        self._emit_async("PLUGIN_DISABLED", {"name": name})
+        return True
+
+    # ── on_ready 钩子 ──
+
+    def register_on_ready(self, hook: Callable) -> None:
+        """注册 on_ready 钩子，框架初始化后统一调用"""
+        self._ready_hooks.append(hook)
+
+    def trigger_on_ready(self) -> None:
+        """触发所有 on_ready 钩子"""
+        for hook in self._ready_hooks:
+            try:
+                hook()
+            except Exception as e:
+                self.logger.error(f" on_ready 钩子执行失败: {e}")
+
+    # ── 循环依赖检测 ──
+
+    def check_circular_dependency(self, plugin_name: str, visited: Set[str], path: List[str]) -> bool:
+        """DFS 检测循环依赖"""
+        visited.add(plugin_name)
+        path.append(plugin_name)
+        if plugin_name in self._dep_graph:
+            for dep in self._dep_graph[plugin_name]:
+                if dep not in visited:
+                    if self.check_circular_dependency(dep, visited, path):
+                        return True
+                elif dep in path:
+                    cycle_start = path.index(dep)
+                    cycle = " -> ".join(path[cycle_start:]) + " -> " + dep
+                    self.logger.error(f" 检测到循环依赖: {cycle}")
+                    return True
+        path.pop()
+        return False
+
+    def check_plugin_dependencies(self, plugin_name: str, dependencies: List[Dict]) -> Tuple[bool, str]:
+        """检查插件依赖是否满足版本要求"""
+        if not dependencies:
+            return True, ""
+        for dep in dependencies:
+            dep_name = dep.get('name')
+            min_ver = dep.get('min_version', '0.0.0')
+            max_ver = dep.get('max_version')
+            if dep_name not in self._versions:
+                return False, f"依赖插件 '{dep_name}' 未加载"
+            loaded_ver = self._versions[dep_name]
+            if self.compare_versions(loaded_ver, min_ver) < 0:
+                return False, f"依赖插件 '{dep_name}' 版本过低，需要 >= {min_ver}，当前 {loaded_ver}"
+            if max_ver and self.compare_versions(loaded_ver, max_ver) > 0:
+                return False, f"依赖插件 '{dep_name}' 版本过高，需要 <= {max_ver}，当前 {loaded_ver}"
+        return True, ""
+
+    # ── 初始化入口 ──
+
+    def init(self) -> None:
+        """第一阶段（同步）：扫描元数据 + 依赖检测"""
+        if self._initialized:
+            self.logger.warning(" 插件管理器已初始化，无需重复调用")
+            return
+        self._registry.clear()
+        self._versions.clear()
+        self._dep_graph.clear()
+        self._ready_hooks.clear()
+
+        sys_plugin_dir = os.path.abspath(get_plugins_dir())
+        user_plugin_dir = os.path.abspath(get_user_plugins_dir())
+        os.makedirs(user_plugin_dir, exist_ok=True)
+
+        plugins_meta = {}
+        sys_meta = self._scan_plugins_metadata(sys_plugin_dir)
+        user_meta = self._scan_plugins_metadata(user_plugin_dir)
+        plugins_meta.update(sys_meta)
+        plugins_meta.update(user_meta)
+
+        self._visited.clear()
+        for pname in self._dep_graph:
+            if pname not in self._visited:
+                if self.check_circular_dependency(pname, set(), []):
+                    self.logger.error(" 检测到循环依赖，初始化失败！")
+                    return
+
+        self._plugins_meta = plugins_meta
+
+    async def async_load(self) -> None:
+        """第二阶段（异步）：加载模块 → 扫描子目录 → 合并注册表"""
+        if not getattr(self, '_plugins_meta', None):
+            self.logger.error(" 请先调用 init()")
+            return
+
+        await asyncio.to_thread(self._load_plugins_by_dependency, self._plugins_meta)
+        await self._async_scan_all()
+        self._merge_decorator_registry()
+        self._registry.sort(key=lambda p: p.get("priority", 50), reverse=True)
+
+        self._initialized = True
+        for plugin in self._registry:
+            await self._emit("PLUGIN_LOADED", {
+                "name": plugin.get("name", ""),
+                "version": plugin.get("version", ""),
+                "author": plugin.get("author", ""),
+            })
+        import logging
+        self.logger_manager.log_with_context(self.logger, logging.INFO, f"\n 插件管理器初始化完成！")
+        self.logger_manager.log_with_context(self.logger, logging.INFO, f" 共注册成功 {len(self._registry)} 个插件:")
+        for idx, plugin in enumerate(self._registry, 1):
+            show_cmds = plugin['commands'][:3] + ["..."] if len(plugin['commands']) > 3 else plugin['commands']
+            ver_info = f" | 版本：{plugin.get('version', '未指定')}"
+            pri_info = f" | 优先级：{plugin.get('priority', 50)}"
+            self.logger_manager.log_with_context(self.logger, logging.INFO, f"   {idx}. {plugin['name']}{ver_info}{pri_info} | 指令：{show_cmds}")
+
+    # ── 第一阶段：扫描元信息 ──
+
+    def _scan_plugins_metadata(self, plugin_dir: str) -> Dict[str, Dict]:
+        """扫描所有插件的 metadata.toml，返回 {name: meta}"""
+        plugins_meta = {}
+        if not os.path.exists(plugin_dir):
+            self.logger.error(f" 插件目录 {plugin_dir} 不存在，跳过插件加载")
+            return plugins_meta
+
+        disabled_set = self.load_disabled_plugins()
+
+        for plugin_name in os.listdir(plugin_dir):
+            if plugin_name in disabled_set:
+                self.logger.debug(f" 插件 {plugin_name} 已被禁用，跳过加载")
+                continue
+            plugin_path = os.path.join(plugin_dir, plugin_name)
+            if not os.path.isdir(plugin_path):
+                continue
+            toml_path = os.path.join(plugin_path, "metadata.toml")
+            if not os.path.exists(toml_path):
+                self.logger.warning(f" 插件 {plugin_name} 缺少 metadata.toml，跳过加载")
+                continue
+            try:
+                meta = load_plugin_toml(toml_path, plugin_path)
+                meta["plugin_path"] = plugin_path
+                deps = meta.get("dependencies", [])
+                self._dep_graph[plugin_name] = [d["name"] for d in deps] if deps else []
+                plugins_meta[plugin_name] = meta
+            except TOMLPluginError as e:
+                self.logger.error(f" {e}", exc_info=True)
+            except Exception as e:
+                self.logger.error(f" 插件 {plugin_name} metadata.toml 加载异常: {e}", exc_info=True)
+        return plugins_meta
+
+    # ── 第二阶段：按依赖顺序加载 ──
+
+    def _load_plugins_by_dependency(self, plugins_meta: Dict[str, Dict]) -> None:
+        """按依赖顺序加载每个插件的核心模块"""
+        loaded = set()
+
+        def load_plugin(plugin_name: str) -> bool:
+            if plugin_name in loaded:
+                return True
+            if plugin_name not in plugins_meta:
+                self.logger.error(f" 依赖插件 '{plugin_name}' 不存在")
+                return False
+            meta = plugins_meta[plugin_name]
+            for dep in meta.get("dependencies", []):
+                if dep["name"] not in loaded:
+                    if not load_plugin(dep["name"]):
+                        return False
+            ok, err = self.check_plugin_dependencies(plugin_name, meta.get("dependencies", []))
+            if not ok:
+                self.logger.error(f" 插件 '{plugin_name}' 依赖检查失败: {err}")
+                return False
+            try:
+                plugin_path = meta["plugin_path"]
+                core_file = "main.py"
+                core_path = os.path.join(plugin_path, core_file)
+                if not os.path.exists(core_path):
+                    core_file = f"{plugin_name}.py"
+                    core_path = os.path.join(plugin_path, core_file)
+                    if not os.path.exists(core_path):
+                        self.logger.error(f" 插件 {plugin_name} 缺失核心文件 main.py 或 {core_file}，跳过加载")
+                        return False
+                mod_name = f"loyan.plugins.{plugin_name}.{core_file[:-3]}"
+                parent_name = f"loyan.plugins.{plugin_name}"
+                if parent_name not in sys.modules:
+                    parent_pkg = importlib.util.module_from_spec(
+                        importlib.machinery.ModuleSpec(parent_name, None, is_package=True)
+                    )
+                    parent_pkg.__path__ = [plugin_path]
+                    sys.modules[parent_name] = parent_pkg
+                spec = importlib.util.spec_from_file_location(name=mod_name, location=core_path)
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+
+                handler_name = meta["handler"]
+                if not hasattr(module, handler_name):
+                    self.logger.error(f" 插件 {plugin_name} 中缺失处理函数 {handler_name}，跳过加载")
+                    return False
+                handler_func = getattr(module, handler_name)
+                if not callable(handler_func):
+                    self.logger.error(f" 插件 {plugin_name} 中 {handler_name} 不可调用，跳过加载")
+                    return False
+
+                # 扫描装饰器
+                pname = meta.get("name", plugin_name)
+                for attr_name in dir(module):
+                    attr_val = getattr(module, attr_name)
+                    if callable(attr_val) and hasattr(attr_val, "_loyan_on_command"):
+                        _register_decorated_function(
+                            attr_val,
+                            plugin_name=pname,
+                            permission=meta.get("permission", "all"),
+                            chat_type=meta.get("chat_type", ["private", "group"]),
+                            is_at_required=meta.get("is_at_required", False),
+                        )
+                    if callable(attr_val) and hasattr(attr_val, "_loyan_fallback"):
+                        _register_fallback_function(
+                            attr_val,
+                            plugin_name=pname,
+                            chat_type=meta.get("chat_type", ["private", "group"]),
+                        )
+
+                self._registry.append({
+                    **meta,
+                    "handler_func": handler_func,
+                    "core_module": module,
+                })
+                self._versions[plugin_name] = meta["version"]
+                loaded.add(plugin_name)
+                self._init_plugin_config(plugin_name, plugin_path)
+                self.logger.debug(f" 插件 {plugin_name} (v{meta['version']}) 注册")
+                return True
+            except Exception as e:
+                self.logger.error(f" 加载插件 {plugin_name} 异常: {e}", exc_info=True)
+                return False
+
+        for pname in plugins_meta:
+            if pname not in loaded:
+                load_plugin(pname)
+
+    async def _async_scan_one_plugin(self, plugin_path: str, plugin_name: str, meta: dict) -> None:
+        pname = meta.get("name", plugin_name)
+        parent_name = f"loyan.plugins.{plugin_name}"
+        for root, dirs, files in os.walk(plugin_path):
+            dirs[:] = sorted(d for d in dirs if not d.startswith(("__", ".")) and d not in ("tests", "__pycache__"))
+            for f in sorted(files):
+                if not f.endswith(".py") or f == "__init__.py":
+                    continue
+                rel_dir = os.path.relpath(root, plugin_path)
+                if rel_dir == ".":
+                    continue
+                mod_parts = rel_dir.split(os.sep) + [f[:-3]]
+                mod_name = f"{parent_name}.{'.'.join(mod_parts)}"
+                try:
+                    sub_mod = importlib.import_module(mod_name)
+                    for attr_name in dir(sub_mod):
+                        attr_val = getattr(sub_mod, attr_name)
+                        if callable(attr_val) and hasattr(attr_val, "_loyan_on_command"):
+                            _register_decorated_function(
+                                attr_val,
+                                plugin_name=pname,
+                                permission=meta.get("permission", "all"),
+                                chat_type=meta.get("chat_type", ["private", "group"]),
+                                is_at_required=meta.get("is_at_required", False),
+                            )
+                except Exception as e:
+                    self.logger.error(f" 子模块扫描失败 {mod_name}: {e}")
+
+    async def _async_scan_all(self) -> None:
+        tasks = []
+        for entry in self._registry:
+            plugin_path = entry.get("plugin_path", "")
+            dir_name = os.path.basename(plugin_path) if plugin_path else ""
+            if not plugin_path or not dir_name:
+                continue
+            tasks.append(self._async_scan_one_plugin(plugin_path, dir_name, entry))
+        if tasks:
+            await asyncio.gather(*tasks)
+
+
+
+    # ── 第三阶段：合并装饰器注册 ──
+
+    def _merge_decorator_registry(self) -> None:
+        """将 DECORATOR_COMMAND_REGISTRY 合并到已扫描的插件
+
+        插件注册的唯一入口是目录扫描（系统目录 + 用户目录）。
+        装饰器命令只合并到目录扫描已存在的插件；未被任何插件目录
+        声明的孤儿条目（如框架核心模块误注册）一律忽略，不允许
+        凭空创建插件。
+        """
+        existing = {p["name"]: p for p in self._registry}
+        for entry in DECORATOR_COMMAND_REGISTRY:
+            pname = entry.get("plugin_name", "unknown")
+            plugin = existing.get(pname)
+            if plugin is None:
+                continue
+            for cmd in entry.get("commands", []):
+                if cmd not in plugin["commands"]:
+                    plugin["commands"].append(cmd)
+                plugin.setdefault("command_handlers", {})[cmd] = entry["handler_func"]
+
+    # ── 指令匹配（供 Pipeline 调用） ──
+
+    def get_matched_plugin(self, raw_msg: str, chat_type: str, sender_id: str, is_at_bot: bool,
+                           master_id: str = "") -> Optional[Dict]:
+        """串行匹配（备用/兼容路径，新 Pipeline 用并行匹配）"""
+        master_check = str(master_id) if master_id else ""
+        for plugin in self._registry:
+            if chat_type not in plugin["chat_type"]:
+                continue
+            if plugin["permission"] == "master":
+                if not master_check or str(sender_id) != master_check:
+                    continue
+            if chat_type == "group" and plugin.get("is_at_required", False) and not is_at_bot:
+                continue
+            matched_cmd = None
+            for cmd in plugin["commands"]:
+                if cmd == "//":
+                    if re.search(r'(?:^|\s)//', raw_msg):
+                        matched_cmd = cmd
+                        break
+                elif cmd in raw_msg:
+                    matched_cmd = cmd
+                    break
+            if matched_cmd:
+                return plugin
+        return None
+
+    # ── 查询 ──
+
+    def get_plugin_metadata(self, plugin_name: str) -> Optional[Dict]:
+        """获取指定插件的元信息"""
+        for p in self._registry:
+            if p.get('name') == plugin_name:
+                return {
+                    "name": p.get("name"),
+                    "version": p.get("version"),
+                    "author": p.get("author"),
+                    "description": p.get("description"),
+                    "priority": p.get("priority", 50),
+                    "commands": p.get("commands"),
+                    "chat_type": p.get("chat_type"),
+                    "permission": p.get("permission"),
+                    "is_at_required": p.get("is_at_required", False),
+                    "icon_path": p.get("icon_path"),
+                    "dependencies": p.get("dependencies", []),
+                    "plugin_path": p.get("plugin_path", ""),
+                }
+        return None
+
+    def get_all_plugins_metadata(self) -> List[Dict]:
+        """获取所有已加载插件的元信息列表"""
+        return [self.get_plugin_metadata(p['name']) for p in self._registry]
+
+    def find_plugin_by_command(self, command: str) -> Optional[Dict]:
+        """根据指令查找所属插件"""
+        for p in self._registry:
+            if command in p.get("commands", []):
+                return p
+        return None
+
+    def get_plugin_count(self) -> int:
+        """获取已注册插件总数"""
+        return len(self._registry)
+
+    def is_plugin_loaded(self, plugin_name: str) -> bool:
+        """检查插件是否已加载"""
+        return plugin_name in self._versions
+
+    # ── 重载 ──
+
+    def _find_registry_entry(self, plugin_name: str) -> Optional[Dict]:
+        """按显示名或目录名查找已注册插件"""
+        for p in self._registry:
+            if p.get('name') == plugin_name or os.path.basename(p.get('plugin_path', '')) == plugin_name:
+                return p
+        return None
+
+    def _purge_plugin_modules(self, plugin_name: str) -> None:
+        """清空 sys.modules 中该插件模块（含子模块）"""
+        prefix = f"loyan.plugins.{plugin_name}"
+        for mod_name in [m for m in sys.modules if m == prefix or m.startswith(prefix + ".")]:
+            del sys.modules[mod_name]
+
+    def _clean_decorator_entries(self, plugin_name: str) -> None:
+        """按插件名清理命令注册中心，防止重载后重复注册"""
+        DECORATOR_COMMAND_REGISTRY[:] = [e for e in DECORATOR_COMMAND_REGISTRY if e.get("plugin_name") != plugin_name]
+        FALLBACK_HANDLERS[:] = [e for e in FALLBACK_HANDLERS if e.get("plugin_name") != plugin_name]
+
+    def _schedule_async_load(self) -> None:
+        """重载后重新加载：有事件循环则异步执行，否则同步兜底"""
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            self._sync_load_plugins()
+            return
+        try:
+            loop.create_task(self.async_load())
+        except RuntimeError:
+            self._sync_load_plugins()
+
+    def _sync_load_plugins(self) -> None:
+        """无事件循环时同步加载插件（跳过子模块异步扫描）"""
+        meta = getattr(self, '_plugins_meta', None)
+        if not meta:
+            return
+        self._load_plugins_by_dependency(meta)
+        self._merge_decorator_registry()
+        self._registry.sort(key=lambda p: p.get("priority", 50), reverse=True)
+        self._initialized = True
+
+    def reload_plugin(self, plugin_name: str) -> bool:
+        """重载插件：purge 模块 + 清理注册 + 全量重扫（支持新装目录）"""
+        found = self._find_registry_entry(plugin_name)
+        plugin_path = found.get('plugin_path') if found else None
+        if not plugin_path:
+            plugin_path = self._find_plugin_dir(plugin_name)
+        if not plugin_path:
+            self.logger.error(f" 未找到插件 {plugin_name}")
+            self._emit_async("PLUGIN_ERROR", {"name": plugin_name, "error": "not_found"})
+            return False
+        try:
+            self._purge_plugin_modules(plugin_name)
+            self._clean_decorator_entries(plugin_name)
+            if found:
+                self._registry.remove(found)
+                for key in (plugin_name, found.get("name", ""), os.path.basename(found.get("plugin_path", ""))):
+                    self._versions.pop(key, None)
+                if found.get("name") != plugin_name:
+                    self._clean_decorator_entries(found["name"])
+            self._initialized = False
+            self.init()
+            self._schedule_async_load()
+            self.logger.info(f" 插件 {plugin_name} 重载完成")
+            self._emit_async("PLUGIN_LOADED", {"name": plugin_name})
+            return True
+        except Exception as e:
+            self.logger.error(f" 重载插件 {plugin_name} 异常: {e}", exc_info=True)
+            self._emit_async("PLUGIN_ERROR", {"name": plugin_name, "error": str(e)})
+            return False
+
+    # ── 配置初始化 ──
+
+    def _init_plugin_config(self, plugin_name: str, plugin_path: str) -> dict:
+        """初始化插件配置（config.py + config.json）
+
+        配置优先级（后加载覆盖前）：
+            1. DEFAULT_CONFIG（插件内默认值）
+            2. storage/config/<plugin>_config.json（全局用户配置）
+        使用 deep_merge 递归合并，新增字段自动补默认值。
+        """
+        config_py_path = os.path.join(plugin_path, "config.py")
+        if not os.path.exists(config_py_path):
+            self._plugin_configs[plugin_name] = {}
+            return {}
+        try:
+            mod_name = f"loyan.plugins.{plugin_name}.config"
+            spec = importlib.util.spec_from_file_location(name=mod_name, location=config_py_path)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            default = getattr(mod, "DEFAULT_CONFIG", None)
+            if default is None or not isinstance(default, dict):
+                self._plugin_configs[plugin_name] = {}
+                return {}
+            from loyan.core.runtime import deep_merge
+
+            plugin_cfg_json = os.path.join(plugin_path, "config.json")
+            if not os.path.exists(plugin_cfg_json):
+                with open(plugin_cfg_json, "w", encoding="utf-8") as f:
+                    json.dump(default, f, ensure_ascii=False, indent=2)
+
+            # 全局用户配置（storage/config/）
+            res_dir = self._get_res_config_dir()
+            if res_dir:
+                res_cfg = os.path.join(res_dir, f"{plugin_name}_config.json")
+                if os.path.exists(res_cfg):
+                    with open(res_cfg, "r", encoding="utf-8") as f:
+                        user_cfg = json.load(f)
+                else:
+                    user_cfg = None
+
+                if user_cfg is not None:
+                    # deep_merge: default 做基底，user_cfg 覆盖其上，新增字段自动补默认值
+                    merged = deep_merge(default, user_cfg)
+                    # 写回磁盘，补齐新增字段
+                    with open(res_cfg, "w", encoding="utf-8") as f:
+                        json.dump(merged, f, ensure_ascii=False, indent=2)
+                    self._plugin_configs[plugin_name] = merged
+                else:
+                    os.makedirs(res_dir, exist_ok=True)
+                    with open(res_cfg, "w", encoding="utf-8") as f:
+                        json.dump(default, f, ensure_ascii=False, indent=2)
+                    self._plugin_configs[plugin_name] = dict(default)
+            else:
+                self._plugin_configs[plugin_name] = dict(default)
+            return self._plugin_configs[plugin_name]
+        except Exception as e:
+            self.logger.error(f" 插件 {plugin_name} 配置初始化失败: {e}")
+            self._plugin_configs[plugin_name] = {}
+            return {}
+
+    def shutdown(self):
+        for plugin in self._registry:
+            core_module = plugin.get('core_module')
+            if core_module and hasattr(core_module, 'on_shutdown'):
+                func = getattr(core_module, 'on_shutdown')
+                if callable(func):
+                    try:
+                        func()
+                    except Exception as e:
+                        self.logger.error(f"调用插件 {plugin.get('name', '?')} on_shutdown 时出错: {e}")
+        self._registry.clear()
+        self._versions.clear()
+        self._dep_graph.clear()
+        self._ready_hooks.clear()
+        self._plugin_configs.clear()
+        self._initialized = False
+
+    def get_plugin_config(self, plugin_name: str) -> dict:
+        """获取插件配置"""
+        return self._plugin_configs.get(plugin_name, {})
+
+    def _get_res_config_dir(self) -> Optional[str]:
+        return get_res_config_dir()
+
+    # ── watchfiles 热重载 ──
+
+    def _purge_all_plugin_modules(self) -> None:
+        """清空 sys.modules 中所有插件模块"""
+        prefix = "loyan.plugins."
+        for mod_name in [m for m in sys.modules if m.startswith(prefix)]:
+            del sys.modules[mod_name]
+
+    def start_watcher(self) -> bool:
+        """启动 watchfiles 热重载监听（需在事件循环内运行）"""
+        if self._watcher_task is not None:
+            return True
+        try:
+            import watchfiles  # noqa: F401
+        except ImportError:
+            self.logger.error("watchfiles not installed, hot reload unavailable")
+            return False
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            self.logger.error("start_watcher requires a running event loop")
+            return False
+        os.makedirs(get_user_plugins_dir(), exist_ok=True)
+        self._watcher_roots = [os.path.abspath(get_plugins_dir()), os.path.abspath(get_user_plugins_dir())]
+        self._watcher_stop = threading.Event()
+        self._watcher_task = loop.create_task(self._watch_loop())
+        self.logger.debug("plugin watcher started")
+        return True
+
+    def stop_watcher(self) -> None:
+        """停止热重载监听"""
+        task, stop = self._watcher_task, self._watcher_stop
+        self._watcher_task, self._watcher_stop = None, None
+        if stop:
+            stop.set()
+        if task is not None and not task.done():
+            task.cancel()
+
+    async def _watch_loop(self) -> None:
+        """watchfiles 监听循环：300ms 防抖，事件驱动重载"""
+        from watchfiles import awatch
+        try:
+            async for changes in awatch(*self._watcher_roots, debounce=300, stop_event=self._watcher_stop):
+                await self._handle_watch_changes(changes)
+        except asyncio.CancelledError:
+            raise
+        except Exception as e:
+            self.logger.error(f"plugin watcher stopped: {e}")
+
+    async def _handle_watch_changes(self, changes) -> None:
+        """处理变更集：新增/删除触发全量重扫，修改触发定向重载"""
+        if self._watcher_busy:
+            return
+        self._watcher_busy = True
+        try:
+            plugins = {p for _, path in changes if (p := self._path_to_plugin(path))}
+            if not plugins:
+                return
+            loaded = {os.path.basename(p.get("plugin_path", "")) for p in self._registry if p.get("plugin_path")}
+            if any(self._find_plugin_dir(p) is None or p not in loaded for p in plugins):
+                self.logger.info("plugin dirs changed, full rescan")
+                await self._rescan_all()
+            else:
+                for plugin in plugins:
+                    self.reload_plugin(plugin)
+        except Exception as e:
+            self.logger.error(f"watch change handling failed: {e}")
+        finally:
+            self._watcher_busy = False
+
+    # 热重载忽略的运行时目录 / 文件（避免缓存/编译误触发导致插件状态丢失）
+    _WATCH_IGNORE_DIRS = {"data", "__pycache__", "logs", "temp", "cache",
+                          "templates", "previews", "debug", "node_modules"}
+    _WATCH_IGNORE_EXTS = {".pyc", ".pyo", ".png", ".jpg", ".jpeg", ".gif", ".webp",
+                          ".mp3", ".wav", ".silk", ".amr", ".json", ".log",
+                          ".db", ".db-wal", ".db-shm", ".lock"}
+
+    def _path_to_plugin(self, path: str) -> Optional[str]:
+        """将变更路径映射到插件目录名
+
+        仅响应源码/配置变更（.py/.toml），忽略运行时缓存目录与文件，
+        避免图片/语音/配置写入触发热重载导致内存状态丢失。
+        """
+        abspath = os.path.abspath(path)
+        for root in self._watcher_roots:
+            root_abs = os.path.abspath(root)
+            if not abspath.startswith(root_abs + os.sep):
+                continue
+            rel = os.path.relpath(abspath, root_abs)
+            parts = rel.split(os.sep)
+            if not parts:
+                return None
+            # 完整路径中任何一段是运行时目录 → 忽略
+            if any(seg in self._WATCH_IGNORE_DIRS for seg in parts[:-1]):
+                return None
+            # 文件扩展名不在源码/配置范围 → 忽略
+            ext = os.path.splitext(parts[-1])[1].lower()
+            if ext and ext not in (".py", ".toml"):
+                return None
+            # 首段以 . 或 __ 开头 → 忽略（隐藏文件/缓存）
+            if parts[0].startswith((".", "__")):
+                return None
+            return parts[0]
+        return None
+
+    async def _rescan_all(self) -> None:
+        """全量重扫：清插件模块缓存与注册中心后重新加载"""
+        self._purge_all_plugin_modules()
+        clear_registry()
+        self._initialized = False
+        self.init()
+        await self.async_load()
+
+
+# ── 全局单例 ──
+plugin_manager = PluginManager()
+
+# ── 生命周期钩子：热重载随 READY 启动 / SHUTDOWN 停止 ──
+
+
+async def _watcher_start_hook(context: dict | None = None):
+    plugin_manager.start_watcher()
+
+
+async def _watcher_stop_hook(context: dict | None = None):
+    plugin_manager.stop_watcher()
+
+
+lifecycle.register_hook(LifecycleEvent.READY, _watcher_start_hook, "plugin_watcher_start")
+lifecycle.register_hook(LifecycleEvent.BEFORE_SHUTDOWN, _watcher_stop_hook, "plugin_watcher_stop")

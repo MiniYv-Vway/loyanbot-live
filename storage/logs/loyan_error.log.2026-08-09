@@ -1,0 +1,90 @@
+2026-08-09 01:39:46 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 02:09:48 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 03:29:55 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 03:59:57 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 04:29:59 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 05:23:24 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 13:27:57 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 13:27:58 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 13:27:58 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 13:28:07 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 13:28:07 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 13:28:07 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 13:28:10 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-126' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 13:28:12 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-129' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 13:29:13 - [hypercorn] - ERROR - [error] - ASGI Framework Lifespan error, shutdown without Lifespan support
+2026-08-09 13:29:13 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-132' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 13:29:19 - [Adapter] - ERROR - [QQOfficial.message] - 消息发送失败: HTTP 400 body={"message":"消息被去重，请检查请求msgseq","code":40054005,"err_code":40054005,"trace_id":"527408747c391fce284740565d31e8b4"}
+2026-08-09 13:29:20 - [Adapter] - ERROR - [QQOfficial.message] - 消息发送失败: HTTP 400 body={"message":"消息被去重，请检查请求msgseq","code":40054005,"err_code":40054005,"trace_id":"65f82debc97eb4b25eb3940d7347bba3"}
+2026-08-09 13:29:27 - [Adapter] - ERROR - [QQOfficial.message] [P50] - 消息发送失败: HTTP 400 body={"message":"消息被去重，请检查请求msgseq","code":40054005,"err_code":40054005,"trace_id":"5fad5c80d0d7b2b03f67528304152d72"}
+2026-08-09 13:29:34 - [Adapter] - ERROR - [QQOfficial.message] - 消息发送失败: HTTP 400 body={"message":"消息被去重，请检查请求msgseq","code":40054005,"err_code":40054005,"trace_id":"e107c7ddd8bddac3a70606f3c0033cbf"}
+2026-08-09 13:29:36 - [Adapter] - ERROR - [QQOfficial.message] - 消息发送失败: HTTP 400 body={"message":"消息被去重，请检查请求msgseq","code":40054005,"err_code":40054005,"trace_id":"3a1fd1e0e1f88bd4e0fccd8fc383740c"}
+2026-08-09 13:57:58 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 13:58:08 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 14:28:00 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 14:28:09 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 14:58:02 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 14:58:11 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 15:28:07 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 15:28:16 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 15:58:16 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 15:58:25 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 16:28:32 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 16:28:41 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 16:59:05 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 16:59:14 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 17:30:05 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 17:30:14 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 18:01:06 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 18:01:15 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 18:32:06 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 18:32:15 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 19:03:06 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 19:03:16 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 19:34:07 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 19:34:16 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 20:05:08 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 20:05:16 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 20:36:08 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 20:36:17 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 21:07:09 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 21:07:17 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 21:27:54 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:27:54 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:27:54 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 21:40:06 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:40:06 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:40:06 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 21:40:53 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:40:56 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 21:41:09 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:41:09 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:41:09 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 21:41:48 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:41:48 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:41:48 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 21:42:12 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:42:12 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:42:12 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 21:42:15 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-124' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 21:42:17 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-127' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 21:42:25 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:42:25 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:42:25 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 21:42:28 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-123' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 21:42:30 - [asyncio] - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-126' coro=<Lifespan.handle_lifespan() done, defined at /usr/local/lib/python3.11/dist-packages/hypercorn/asyncio/lifespan.py:43> wait_for=<Future cancelled>>
+2026-08-09 21:43:21 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
+2026-08-09 21:43:22 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
+2026-08-09 21:43:22 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-09 22:13:23 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 22:43:24 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 23:13:27 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-09 23:43:31 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令

@@ -1,0 +1,64 @@
+2026-08-09 01:36:37,610 - [TerminalSim] - INFO - TerminalSim v1.0 启动
+2026-08-09 01:36:37,610 - [TerminalSim] - INFO - TerminalSim v1.0 启动
+2026-08-09 01:36:37,610 - [TerminalSim] - INFO - 活动日志已创建
+2026-08-09 01:36:37,610 - [TerminalSim] - INFO - 活动日志已创建
+2026-08-09 01:36:37,610 - [TerminalSim] - INFO - 启动后台活动监控
+2026-08-09 01:36:37,610 - [TerminalSim] - INFO - 启动后台活动监控
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+awk: line 1: syntax error at or near *
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+  File "/root/loyanbot/keeper_terminal.py", line 59
+    mem_pct = os.popen("free -m | awk 'NR==2{printf \\"%.1f\\", $3*100/$2}'").read().strip()
+                                                         ^
+SyntaxError: invalid decimal literal
+2026-08-09 01:42:40,413 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-09 01:42:40,413 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-09 01:43:01,843 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-09 01:43:01,843 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-09 01:45:01,924 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-09 01:47:18,114 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-09 01:47:18,114 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-10 09:10:29,389 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-10 11:25:33,176 - [TerminalSim] - INFO - TerminalSim v1.1 启动
+2026-08-10 11:25:33,176 - [TerminalSim] - INFO - TerminalSim v1.1 启动

@@ -1,0 +1,78 @@
+[凭据] GOBANG_VIEW_CODE_PASSWORD 未配置，本次生成临时值: jDQW7iHmIMyt（重启后失效，请设置环境变量 GOBANG_VIEW_CODE_PASSWORD 固定）
+五子棋已启动: http://127.0.0.1:12345
+[2026-08-10T02:30:51.021Z] 用户登录 - {"username":"admin","connId":"c_msmm6skkz9hk"}
+[2026-08-10T02:30:51.120Z] 查看用户列表 - {"username":"admin"}
+[2026-08-10T02:31:17.074Z] 用户登录 - {"username":"bottest_msmm6lue","connId":"c_msmm7l8tqz5j"}
+[2026-08-10T02:31:17.078Z] 账号注销 - {"username":"bottest_msmm6lue","connId":"c_msmm7l8tqz5j"}
+[2026-08-10T02:31:17.086Z] 用户登录 - {"username":"bottest_msmm6lue_0","connId":"c_msmm7l985cfa"}
+[2026-08-10T02:31:17.087Z] 账号注销 - {"username":"bottest_msmm6lue_0","connId":"c_msmm7l985cfa"}
+[2026-08-10T02:31:17.091Z] 用户登录 - {"username":"bottest_msmm6lue_1","connId":"c_msmm7l9eutsh"}
+[2026-08-10T02:31:17.093Z] 账号注销 - {"username":"bottest_msmm6lue_1","connId":"c_msmm7l9eutsh"}
+[2026-08-10T02:31:17.097Z] 用户登录 - {"username":"bottest_msmm6lue_2","connId":"c_msmm7l9k4by4"}
+[2026-08-10T02:31:17.099Z] 账号注销 - {"username":"bottest_msmm6lue_2","connId":"c_msmm7l9k4by4"}
+[2026-08-10T02:31:17.105Z] 用户登录 - {"username":"bottest_msmm6lue_3","connId":"c_msmm7l9r0nhs"}
+[2026-08-10T02:31:17.106Z] 账号注销 - {"username":"bottest_msmm6lue_3","connId":"c_msmm7l9r0nhs"}
+[2026-08-10T02:31:17.111Z] 用户登录 - {"username":"bottest_msmm6lue_4","connId":"c_msmm7l9y8hoo"}
+[2026-08-10T02:31:17.112Z] 账号注销 - {"username":"bottest_msmm6lue_4","connId":"c_msmm7l9y8hoo"}
+[2026-08-10T02:31:22.741Z] 用户登录 - {"username":"ratetest_msmm6u35_0","connId":"c_msmm7pm8lp2y"}
+[2026-08-10T02:31:22.743Z] 账号注销 - {"username":"ratetest_msmm6u35_0","connId":"c_msmm7pm8lp2y"}
+[配置] 已加载 .env
+五子棋已启动: http://127.0.0.1:12345
+[2026-08-10T02:35:54.217Z] 账号注销 - {"username":"deltest_a","connId":"c_msmmdiv0chpt"}
+[配置] 已加载 .env
+五子棋已启动: http://127.0.0.1:12345
+[2026-08-10T02:53:34.844Z] 用户登录 - {"username":"admin","connId":"c_msmn09gy291w"}
+[2026-08-10T02:53:54.877Z] 用户注册 - {"username":"admin_del_t1","clientIP":"10.9.9.1"}
+[2026-08-10T02:53:59.881Z] 用户登录 - {"username":"admin_del_t1","connId":"c_msmn0oxlx9db"}
+[2026-08-10T02:54:04.891Z] 用户登录 - {"username":"admin_del_t1","connId":"c_msmn0wnuvkaw"}
+[2026-08-10T02:54:13.914Z] 用户登录 - {"username":"admin","connId":"c_msmn13mcno3y"}
+[2026-08-10T02:54:27.327Z] 用户登录 - {"username":"admin","connId":"c_msmn1dyye8fe"}
+[2026-08-10T02:54:27.334Z] 管理密码验证失败 - {"username":"admin","reason":"密码错误"}
+[2026-08-10T02:54:27.336Z] 管理密码验证成功 - {"username":"admin"}
+[2026-08-10T02:54:27.337Z] 查看用户列表 - {"username":"admin"}
+[2026-08-10T02:54:27.351Z] 用户登录 - {"username":"admin_del_t1","connId":"c_msmn1dzopw7c"}
+[2026-08-10T02:54:27.357Z] 管理员删除用户 - {"username":"admin","target":"admin_del_t1"}
+[配置] 已加载 .env
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 127.0.0.1:12345
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on WebSocketServer instance at:
+    at Server.emit (node:events:519:28)
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 12345
+}
+
+Node.js v22.22.0
+[配置] 已加载 .env
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 127.0.0.1:12345
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on WebSocketServer instance at:
+    at Server.emit (node:events:519:28)
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 12345
+}
+
+Node.js v22.22.0

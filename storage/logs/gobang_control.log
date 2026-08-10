@@ -1,0 +1,43 @@
+/workspace/gobang_control.py:358: UserWarning: Additional arguments, log_level, are not supported.
+They may be supported by Hypercorn, which is the ASGI server Quart uses by default. This method is meant for development and debugging.
+  app.run(host="0.0.0.0", port=9000, log_level="info")
+[2026-08-08 16:46:28 +0000] [6689] [INFO] Running on http://0.0.0.0:9000 (CTRL + C to quit)
+ * Serving Quart app 'gobang_control'
+ * Debug mode: False
+ * Please use an ASGI server (e.g. Hypercorn) directly in production
+ * Running on http://0.0.0.0:9000 (CTRL + C to quit)
+[2026-08-08 16:46:44 +0000] [6689] [INFO] 127.0.0.1:51532 GET /api/status 1.1 200 29 8116
+[2026-08-08 16:46:45,012] ERROR in app: Exception on request GET /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1465, in handle_request
+    return await self.full_dispatch_request(request_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1504, in full_dispatch_request
+    return await self.finalize_request(result, request_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1629, in finalize_request
+    response = await self.make_response(result)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1448, in make_response
+    raise TypeError(
+TypeError: The response value type (coroutine) is not valid
+/usr/local/lib/python3.11/dist-packages/quart/app.py:1469: RuntimeWarning: coroutine 'render_template_string' was never awaited
+  return await self.handle_exception(error)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+[2026-08-08 16:46:45 +0000] [6689] [INFO] 127.0.0.1:51548 GET / 1.1 500 265 8590
+[2026-08-08 16:46:45 +0000] [6689] [INFO] 127.0.0.1:51558 GET /api/config 1.1 200 58 2434
+[2026-08-08 16:46:53,725] ERROR in app: Exception on request GET /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1465, in handle_request
+    return await self.full_dispatch_request(request_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1504, in full_dispatch_request
+    return await self.finalize_request(result, request_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1629, in finalize_request
+    response = await self.make_response(result)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/quart/app.py", line 1448, in make_response
+    raise TypeError(
+TypeError: The response value type (coroutine) is not valid
+[2026-08-08 16:46:53 +0000] [6689] [INFO] 127.0.0.1:46108 GET / 1.1 500 265 6464

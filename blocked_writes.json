@@ -1,0 +1,42 @@
+{
+  "blocked": 6,
+  "last_blocked": "2026-08-11 07:51:21",
+  "history": [
+    {
+      "time": "2026-08-11 07:50:56",
+      "file": "/workspace/.monkeycode/MEMORY.md",
+      "operation": "modify",
+      "pid": 18520
+    },
+    {
+      "time": "2026-08-11 07:51:05",
+      "file": "/workspace/.monkeycode/MEMORY.md",
+      "operation": "modify",
+      "pid": 18520
+    },
+    {
+      "time": "2026-08-11 07:51:15",
+      "file": "/workspace/.monkeycode/MEMORY.md",
+      "operation": "modify",
+      "pid": 18520
+    },
+    {
+      "time": "2026-08-11 07:51:15",
+      "file": "/root/.codingmatrix/project-tpl/.ai-ready/MEMORY.md",
+      "operation": "modify",
+      "pid": 18520
+    },
+    {
+      "time": "2026-08-11 07:51:21",
+      "file": "/workspace/.monkeycode/MEMORY.md",
+      "operation": "modify",
+      "pid": 18520
+    },
+    {
+      "time": "2026-08-11 07:51:21",
+      "file": "/workspace/.monkeycode/MEMORY.md",
+      "operation": "modify",
+      "pid": 18520
+    }
+  ]
+}

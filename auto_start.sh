@@ -22,3 +22,4 @@ ps aux | grep -E "(supervisor|keeper|bot|http_server)" | grep -v grep
 
 echo ""
 echo "=== 启动完成 ==="
+start_care.sh

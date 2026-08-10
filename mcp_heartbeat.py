@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """MCP心跳 - 通过MCP API保持平台活跃"""
-import os, sys, time, logging, urllib.request, json
+import os, sys, time, logging, urllib.request, json, fcntl
 from pathlib import Path
 
+PID_FILE = Path("/root/loyanbot/storage/logs/mcp_heartbeat.pid")
+LOCK_FILE = Path("/root/loyanbot/storage/logs/mcp_heartbeat.lock")
 LOG_DIR = Path("/root/loyanbot/storage/logs")
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-PID_FILE = LOG_DIR / "mcp_heartbeat.pid"
 AGENT_TOKEN = "agent_access_930591ae-b8ee-4b2f-b5ad-1779f2d98207"
 MCP_TASK_ID = "a363865f-366c-485a-acf6-894a53a178d4"
 AGENT_API_URL = "http://127.0.0.1:65510/mcp"
@@ -20,21 +20,29 @@ logging.basicConfig(
 )
 log = logging.getLogger("MCPHeartbeat")
 
-def mcp_call(method, params=None, tool_name=None, tool_args=None):
-    if tool_name:
-        payload = {
-            "jsonrpc": "2.0",
-            "id": int(time.time() * 1000),
-            "method": "tools/call",
-            "params": {"name": tool_name, "arguments": tool_args or {}}
-        }
-    else:
-        payload = {
-            "jsonrpc": "2.0",
-            "id": int(time.time() * 1000),
-            "method": method,
-            "params": params or {}
-        }
+def acquire_lock():
+    try:
+        f = open(LOCK_FILE, 'w')
+        fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        f.write(str(os.getpid()))
+        f.flush()
+        return f
+    except IOError:
+        log.info("其他实例正在运行，退出")
+        sys.exit(0)
+
+def release_lock(f):
+    fcntl.flock(f, fcntl.LOCK_UN)
+    f.close()
+    LOCK_FILE.unlink(missing_ok=True)
+
+def mcp_call(tool_name, tool_args):
+    payload = {
+        "jsonrpc": "2.0",
+        "id": int(time.time() * 1000),
+        "method": "tools/call",
+        "params": {"name": tool_name, "arguments": tool_args}
+    }
     headers = {
         "Authorization": f"Bearer {AGENT_TOKEN}",
         "Content-Type": "application/json",
@@ -48,31 +56,31 @@ def mcp_call(method, params=None, tool_name=None, tool_args=None):
             method="POST"
         )
         resp = urllib.request.urlopen(req, timeout=5)
-        data = json.loads(resp.read().decode())
-        return resp.status, data
+        return resp.status
     except Exception as e:
-        return 0, str(e)
+        return 0
 
 def main():
+    lock = acquire_lock()
     PID_FILE.write_text(str(os.getpid()))
     log.info("MCPHeartbeat 启动")
     try:
         while True:
-            methods = [
-                ("tools/list", None, None, None),
-                ("tools/call", None, "background_terminal_list", {}),
-                ("tools/call", None, "request_preview", {"port": 8000}),
-                ("tools/call", None, "background_terminal_create", {"command": "echo keepalive", "timeout": 5000}),
-            ]
-            for method, params, tool_name, tool_args in methods:
-                status, result = mcp_call(method, params, tool_name, tool_args)
-                log.info(f"MCP调用 {method}/{tool_name or ''} -> {status}")
-                time.sleep(0.5)
-            time.sleep(5)
+            for name, args in [
+                ("tools/list", {}),
+                ("background_terminal_list", {}),
+                ("request_preview", {"port": 8000}),
+                ("background_terminal_create", {"command": "echo keepalive", "timeout": 3000}),
+            ]:
+                status = mcp_call(name, args)
+                log.info(f"MCP {name} -> {status}")
+                time.sleep(1)
+            time.sleep(4)
     except KeyboardInterrupt:
         log.info("MCPHeartbeat 停止")
     finally:
         PID_FILE.unlink(missing_ok=True)
+        release_lock(lock)
 
 if __name__ == "__main__":
     main()

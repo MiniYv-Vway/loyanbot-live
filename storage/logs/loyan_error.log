@@ -47,3 +47,11 @@ task: <Task pending name='Task-130' coro=<Lifespan.handle_lifespan() done, defin
 2026-08-10 16:39:43 - [Loyan] - ERROR -  加载插件 Gracone_Plugin 异常: No module named 'sqlalchemy'
 2026-08-10 16:39:43 - [Loyan] - ERROR - panel load failed: No module named 'Crypto'
 2026-08-10 16:39:43 - [Loyan] - ERROR - watchfiles not installed, hot reload unavailable
+2026-08-10 17:31:31 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 18:01:33 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 18:31:36 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 19:01:41 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 19:31:49 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 20:02:05 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 20:32:37 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-10 21:03:39 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令

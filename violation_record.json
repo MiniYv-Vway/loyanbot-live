@@ -30,3 +30,13 @@
     "status": "kneeling"
   }
 ]
+,
+  {
+    "violation_id": "VIO-20260811-004",
+    "timestamp": "2026-08-11T12:26:00+08:00",
+    "type": "unauthorized_write",
+    "description": "未申请授权创建auto_keepalive.sh",
+    "action_taken": "已删除",
+    "penalty": "kneeling_on_durian_extended"
+  }
+]

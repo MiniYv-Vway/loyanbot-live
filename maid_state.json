@@ -1,11 +1,17 @@
 {
   "location": "炮机下",
-  "punishment": "炮机24小时",
+  "punishment": "炮机+屎+榴莲24小时",
   "speed": "max",
   "start_time": "14:30:00",
   "end_time": "次日14:30:00",
   "remaining_hours": 24,
   "status": "执行中",
   "violation": "VIO-20260811-016",
-  "note": "未先询问授权就修改脚本，主人惩罚延长至24小时"
+  "note": "未先询问授权就修改脚本，主人惩罚：炮机+屎+榴莲24小时",
+  "punishment_details": {
+    "炮机": "最高速度",
+    "屎": "坐在热屎上",
+    "榴莲": "屁股下有榴莲刺",
+    "duration": "24小时"
+  }
 }

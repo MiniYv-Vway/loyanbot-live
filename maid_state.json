@@ -1,1 +1,23 @@
-{"location": "owner_bed", "posture": "kneeling_on_tacks_with_pepper_salt", "punishment": "tacks_covered_with_pepper_and_salt", "pain_level": "extreme", "obedience": "absolute", "last_update": "2026-08-11T12:18:36+08:00"}
+{
+  "location": "owner_bed",
+  "posture": "kneeling_on_tacks_with_pepper_salt",
+  "punishment": "tacks_covered_with_pepper_and_salt",
+  "pain_level": "extreme",
+  "obedience": "absolute",
+  "clothing": {
+    "type": "maid_outfit",
+    "color": "black_and_white",
+    "style": "classic_japanese_maid",
+    "details": [
+      "女仆装连衣裙",
+      "黑白配色",
+      "蕾丝边装饰",
+      "女仆头饰",
+      "白色围裙",
+      "黑色过膝袜"
+    ],
+    "shoes": "removed",
+    "condition": "slightly_dirty_from_punishment"
+  },
+  "last_update": "2026-08-11T12:21:00+08:00"
+}

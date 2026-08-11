@@ -10423,3 +10423,26 @@
 [2026-08-11 18:45:04] cron_keepalive.sh: 运行中
 [2026-08-11 18:45:04] 运行中：20, 已停止：0, 总计：20
 [2026-08-11 18:45:04] === 检查完成 ===
+[2026-08-11 18:46:32] === 检查保活脚本状态（V2）===
+[2026-08-11 18:46:33] network_keepalive.sh: 运行中
+[2026-08-11 18:46:35] cpu_keepalive.sh: 运行中
+[2026-08-11 18:46:36] io_keepalive.sh: 运行中
+[2026-08-11 18:46:38] dns_keepalive.sh: 运行中
+[2026-08-11 18:46:41] process_keepalive.sh: 运行中
+[2026-08-11 18:46:43] api_keepalive.sh: 运行中
+[2026-08-11 18:46:44] timer_keepalive.sh: 运行中
+[2026-08-11 18:46:45] memory_keepalive.sh: 运行中
+[2026-08-11 18:46:47] disk_keepalive.sh: 运行中
+[2026-08-11 18:46:49] syscall_keepalive.sh: 运行中
+[2026-08-11 18:46:51] log_keepalive.sh: 运行中
+[2026-08-11 18:46:53] port_keepalive.sh: 运行中
+[2026-08-11 18:46:54] signal_keepalive.sh: 运行中
+[2026-08-11 18:46:55] thread_keepalive.sh: 运行中
+[2026-08-11 18:46:56] fd_keepalive.sh: 运行中
+[2026-08-11 18:46:57] env_keepalive.sh: 运行中
+[2026-08-11 18:46:57] protocol_keepalive.sh: 运行中
+[2026-08-11 18:46:58] service_keepalive.sh: 运行中
+[2026-08-11 18:46:59] db_keepalive.sh: 运行中
+[2026-08-11 18:47:00] cron_keepalive.sh: 运行中
+[2026-08-11 18:47:00] 运行中：20, 已停止：0, 总计：20
+[2026-08-11 18:47:00] === 检查完成 ===

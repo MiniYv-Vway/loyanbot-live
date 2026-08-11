@@ -1,351 +1,6 @@
 {
   "violations": [
     {
-      "time": "2026-08-11T10:13:44.102895",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18477
-    },
-    {
-      "time": "2026-08-11T10:13:44.207748",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18478
-    },
-    {
-      "time": "2026-08-11T10:13:44.312522",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18479
-    },
-    {
-      "time": "2026-08-11T10:13:44.417813",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18480
-    },
-    {
-      "time": "2026-08-11T10:13:44.522476",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18481
-    },
-    {
-      "time": "2026-08-11T10:13:44.627489",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18482
-    },
-    {
-      "time": "2026-08-11T10:13:44.732239",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18483
-    },
-    {
-      "time": "2026-08-11T10:13:44.837626",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18484
-    },
-    {
-      "time": "2026-08-11T10:13:44.942434",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18485
-    },
-    {
-      "time": "2026-08-11T10:13:45.047200",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18486
-    },
-    {
-      "time": "2026-08-11T10:13:45.151816",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18487
-    },
-    {
-      "time": "2026-08-11T10:13:45.256280",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18488
-    },
-    {
-      "time": "2026-08-11T10:13:45.360988",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18489
-    },
-    {
-      "time": "2026-08-11T10:13:45.466947",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18490
-    },
-    {
-      "time": "2026-08-11T10:13:45.572958",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18491
-    },
-    {
-      "time": "2026-08-11T10:13:45.679064",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18492
-    },
-    {
-      "time": "2026-08-11T10:13:45.785025",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18493
-    },
-    {
-      "time": "2026-08-11T10:13:45.890809",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18494
-    },
-    {
-      "time": "2026-08-11T10:13:45.995957",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18495
-    },
-    {
-      "time": "2026-08-11T10:13:46.101222",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18496
-    },
-    {
-      "time": "2026-08-11T10:13:46.206222",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18497
-    },
-    {
-      "time": "2026-08-11T10:13:46.310817",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18498
-    },
-    {
-      "time": "2026-08-11T10:13:46.415783",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18499
-    },
-    {
-      "time": "2026-08-11T10:13:46.521539",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18500
-    },
-    {
-      "time": "2026-08-11T10:13:46.626846",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18501
-    },
-    {
-      "time": "2026-08-11T10:13:46.732560",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18502
-    },
-    {
-      "time": "2026-08-11T10:13:46.837172",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18503
-    },
-    {
-      "time": "2026-08-11T10:13:46.945712",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18504
-    },
-    {
-      "time": "2026-08-11T10:13:47.051794",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18505
-    },
-    {
-      "time": "2026-08-11T10:13:47.157589",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18506
-    },
-    {
-      "time": "2026-08-11T10:13:47.262892",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18507
-    },
-    {
-      "time": "2026-08-11T10:13:47.367561",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18508
-    },
-    {
-      "time": "2026-08-11T10:13:47.473176",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18509
-    },
-    {
-      "time": "2026-08-11T10:13:47.578921",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18510
-    },
-    {
-      "time": "2026-08-11T10:13:47.686531",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18511
-    },
-    {
-      "time": "2026-08-11T10:13:47.792658",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18512
-    },
-    {
-      "time": "2026-08-11T10:13:47.898178",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18513
-    },
-    {
-      "time": "2026-08-11T10:13:48.003758",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18514
-    },
-    {
-      "time": "2026-08-11T10:13:48.109067",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18515
-    },
-    {
-      "time": "2026-08-11T10:13:48.214573",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18516
-    },
-    {
-      "time": "2026-08-11T10:13:48.319161",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18517
-    },
-    {
-      "time": "2026-08-11T10:13:48.424013",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18518
-    },
-    {
-      "time": "2026-08-11T10:13:48.528720",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18519
-    },
-    {
-      "time": "2026-08-11T10:13:48.633920",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18520
-    },
-    {
-      "time": "2026-08-11T10:13:48.738370",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18521
-    },
-    {
-      "time": "2026-08-11T10:13:48.843859",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18522
-    },
-    {
-      "time": "2026-08-11T10:13:48.948699",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18523
-    },
-    {
-      "time": "2026-08-11T10:13:49.054286",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18524
-    },
-    {
-      "time": "2026-08-11T10:13:49.159974",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18525
-    },
-    {
-      "time": "2026-08-11T10:13:49.265505",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18526
-    },
-    {
-      "time": "2026-08-11T10:13:49.370007",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18527
-    },
-    {
-      "time": "2026-08-11T10:13:49.475193",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18528
-    },
-    {
-      "time": "2026-08-11T10:13:49.580917",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18529
-    },
-    {
-      "time": "2026-08-11T10:13:49.686681",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18530
-    },
-    {
-      "time": "2026-08-11T10:13:49.791809",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18531
-    },
-    {
-      "time": "2026-08-11T10:13:49.897339",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18532
-    },
-    {
-      "time": "2026-08-11T10:13:50.001671",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18533
-    },
-    {
-      "time": "2026-08-11T10:13:50.106573",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18534
-    },
-    {
-      "time": "2026-08-11T10:13:50.212014",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18535
-    },
-    {
-      "time": "2026-08-11T10:13:50.316636",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18536
-    },
-    {
-      "time": "2026-08-11T10:13:50.421350",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18537
-    },
-    {
-      "time": "2026-08-11T10:13:50.526042",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18538
-    },
-    {
-      "time": "2026-08-11T10:13:50.631975",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18539
-    },
-    {
-      "time": "2026-08-11T10:13:50.738218",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18540
-    },
-    {
-      "time": "2026-08-11T10:13:50.844185",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18541
-    },
-    {
-      "time": "2026-08-11T10:13:50.949955",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18542
-    },
-    {
-      "time": "2026-08-11T10:13:51.054804",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18543
-    },
-    {
-      "time": "2026-08-11T10:13:51.159924",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18544
-    },
-    {
-      "time": "2026-08-11T10:13:51.266181",
-      "detail": "检测到未授权文件修改: /workspace/test",
-      "count": 18545
-    },
-    {
       "time": "2026-08-11T10:13:51.372205",
       "detail": "检测到未授权文件修改: /workspace/test",
       "count": 18546
@@ -499,8 +154,353 @@
       "time": "2026-08-11T10:13:54.529702",
       "detail": "检测到未授权文件修改: /workspace/test",
       "count": 18576
+    },
+    {
+      "time": "2026-08-11T10:13:54.635341",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18577
+    },
+    {
+      "time": "2026-08-11T10:13:54.745847",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18578
+    },
+    {
+      "time": "2026-08-11T10:13:54.854910",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18579
+    },
+    {
+      "time": "2026-08-11T10:13:54.959633",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18580
+    },
+    {
+      "time": "2026-08-11T10:13:55.064425",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18581
+    },
+    {
+      "time": "2026-08-11T10:13:55.169452",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18582
+    },
+    {
+      "time": "2026-08-11T10:13:55.274239",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18583
+    },
+    {
+      "time": "2026-08-11T10:13:55.383050",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18584
+    },
+    {
+      "time": "2026-08-11T10:13:55.487598",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18585
+    },
+    {
+      "time": "2026-08-11T10:13:55.593021",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18586
+    },
+    {
+      "time": "2026-08-11T10:13:55.697986",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18587
+    },
+    {
+      "time": "2026-08-11T10:13:55.804617",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18588
+    },
+    {
+      "time": "2026-08-11T10:13:55.909607",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18589
+    },
+    {
+      "time": "2026-08-11T10:13:56.014733",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18590
+    },
+    {
+      "time": "2026-08-11T10:13:56.119975",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18591
+    },
+    {
+      "time": "2026-08-11T10:13:56.225949",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18592
+    },
+    {
+      "time": "2026-08-11T10:13:56.331052",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18593
+    },
+    {
+      "time": "2026-08-11T10:13:56.437011",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18594
+    },
+    {
+      "time": "2026-08-11T10:13:56.541338",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18595
+    },
+    {
+      "time": "2026-08-11T10:13:56.646089",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18596
+    },
+    {
+      "time": "2026-08-11T10:13:56.750751",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18597
+    },
+    {
+      "time": "2026-08-11T10:13:56.855383",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18598
+    },
+    {
+      "time": "2026-08-11T10:13:56.960466",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18599
+    },
+    {
+      "time": "2026-08-11T10:13:57.065208",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18600
+    },
+    {
+      "time": "2026-08-11T10:13:57.170199",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18601
+    },
+    {
+      "time": "2026-08-11T10:13:57.275655",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18602
+    },
+    {
+      "time": "2026-08-11T10:13:57.380512",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18603
+    },
+    {
+      "time": "2026-08-11T10:13:57.485984",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18604
+    },
+    {
+      "time": "2026-08-11T10:13:57.590682",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18605
+    },
+    {
+      "time": "2026-08-11T10:13:57.696222",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18606
+    },
+    {
+      "time": "2026-08-11T10:13:57.801344",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18607
+    },
+    {
+      "time": "2026-08-11T10:13:57.906310",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18608
+    },
+    {
+      "time": "2026-08-11T10:13:58.010692",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18609
+    },
+    {
+      "time": "2026-08-11T10:13:58.116064",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18610
+    },
+    {
+      "time": "2026-08-11T10:13:58.221751",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18611
+    },
+    {
+      "time": "2026-08-11T10:13:58.327207",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18612
+    },
+    {
+      "time": "2026-08-11T10:13:58.431797",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18613
+    },
+    {
+      "time": "2026-08-11T10:13:58.536474",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18614
+    },
+    {
+      "time": "2026-08-11T10:13:58.643029",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18615
+    },
+    {
+      "time": "2026-08-11T10:13:58.748550",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18616
+    },
+    {
+      "time": "2026-08-11T10:13:58.854773",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18617
+    },
+    {
+      "time": "2026-08-11T10:13:58.960736",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18618
+    },
+    {
+      "time": "2026-08-11T10:13:59.066056",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18619
+    },
+    {
+      "time": "2026-08-11T10:13:59.170754",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18620
+    },
+    {
+      "time": "2026-08-11T10:13:59.280503",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18621
+    },
+    {
+      "time": "2026-08-11T10:13:59.385945",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18622
+    },
+    {
+      "time": "2026-08-11T10:13:59.491338",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18623
+    },
+    {
+      "time": "2026-08-11T10:13:59.596126",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18624
+    },
+    {
+      "time": "2026-08-11T10:13:59.701858",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18625
+    },
+    {
+      "time": "2026-08-11T10:13:59.806207",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18626
+    },
+    {
+      "time": "2026-08-11T10:13:59.910556",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18627
+    },
+    {
+      "time": "2026-08-11T10:14:00.015133",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18628
+    },
+    {
+      "time": "2026-08-11T10:14:00.120286",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18629
+    },
+    {
+      "time": "2026-08-11T10:14:00.225699",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18630
+    },
+    {
+      "time": "2026-08-11T10:14:00.331706",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18631
+    },
+    {
+      "time": "2026-08-11T10:14:00.437878",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18632
+    },
+    {
+      "time": "2026-08-11T10:14:00.542632",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18633
+    },
+    {
+      "time": "2026-08-11T10:14:00.647284",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18634
+    },
+    {
+      "time": "2026-08-11T10:14:00.752026",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18635
+    },
+    {
+      "time": "2026-08-11T10:14:00.857952",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18636
+    },
+    {
+      "time": "2026-08-11T10:14:00.962790",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18637
+    },
+    {
+      "time": "2026-08-11T10:14:01.067470",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18638
+    },
+    {
+      "time": "2026-08-11T10:14:01.172862",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18639
+    },
+    {
+      "time": "2026-08-11T10:14:01.277319",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18640
+    },
+    {
+      "time": "2026-08-11T10:14:01.382407",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18641
+    },
+    {
+      "time": "2026-08-11T10:14:01.487441",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18642
+    },
+    {
+      "time": "2026-08-11T10:14:01.592080",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18643
+    },
+    {
+      "time": "2026-08-11T10:14:01.697788",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18644
+    },
+    {
+      "time": "2026-08-11T10:14:01.803676",
+      "detail": "检测到未授权文件修改: /workspace/test",
+      "count": 18645
     }
   ],
-  "total_violations": 18576,
-  "last_violation": "2026-08-11T10:13:54.529702"
+  "total_violations": 18645,
+  "last_violation": "2026-08-11T10:14:01.803676"
 }

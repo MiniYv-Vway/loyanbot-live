@@ -1,506 +1,506 @@
 {
   "violations": [
     {
-      "time": "2026-08-11T08:19:56.038148",
+      "time": "2026-08-11T08:24:56.586765",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3290
+      "count": 518
     },
     {
-      "time": "2026-08-11T08:19:56.042270",
+      "time": "2026-08-11T08:24:56.590624",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3291
+      "count": 519
     },
     {
-      "time": "2026-08-11T08:19:56.146469",
+      "time": "2026-08-11T08:24:56.694908",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3292
+      "count": 520
     },
     {
-      "time": "2026-08-11T08:19:56.149329",
+      "time": "2026-08-11T08:24:56.698270",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3293
+      "count": 521
     },
     {
-      "time": "2026-08-11T08:19:56.252952",
+      "time": "2026-08-11T08:24:56.803963",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3294
+      "count": 522
     },
     {
-      "time": "2026-08-11T08:19:56.256081",
+      "time": "2026-08-11T08:24:56.807072",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3295
+      "count": 523
     },
     {
-      "time": "2026-08-11T08:19:56.360391",
+      "time": "2026-08-11T08:24:56.912172",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3296
+      "count": 524
     },
     {
-      "time": "2026-08-11T08:19:56.364150",
+      "time": "2026-08-11T08:24:56.915137",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3297
+      "count": 525
     },
     {
-      "time": "2026-08-11T08:19:56.468218",
+      "time": "2026-08-11T08:24:57.019123",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3298
+      "count": 526
     },
     {
-      "time": "2026-08-11T08:19:56.472012",
+      "time": "2026-08-11T08:24:57.022212",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3299
+      "count": 527
     },
     {
-      "time": "2026-08-11T08:19:56.576132",
+      "time": "2026-08-11T08:24:57.126099",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3300
+      "count": 528
     },
     {
-      "time": "2026-08-11T08:19:56.579010",
+      "time": "2026-08-11T08:24:57.129265",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3301
+      "count": 529
     },
     {
-      "time": "2026-08-11T08:19:56.682802",
+      "time": "2026-08-11T08:24:57.233958",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3302
+      "count": 530
     },
     {
-      "time": "2026-08-11T08:19:56.685980",
+      "time": "2026-08-11T08:24:57.237075",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3303
+      "count": 531
     },
     {
-      "time": "2026-08-11T08:19:56.790165",
+      "time": "2026-08-11T08:24:57.341288",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3304
+      "count": 532
     },
     {
-      "time": "2026-08-11T08:19:56.793548",
+      "time": "2026-08-11T08:24:57.345271",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3305
+      "count": 533
     },
     {
-      "time": "2026-08-11T08:19:56.897743",
+      "time": "2026-08-11T08:24:57.449570",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3306
+      "count": 534
     },
     {
-      "time": "2026-08-11T08:19:56.902120",
+      "time": "2026-08-11T08:24:57.452774",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3307
+      "count": 535
     },
     {
-      "time": "2026-08-11T08:19:57.006732",
+      "time": "2026-08-11T08:24:57.557160",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3308
+      "count": 536
     },
     {
-      "time": "2026-08-11T08:19:57.010015",
+      "time": "2026-08-11T08:24:57.561396",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3309
+      "count": 537
     },
     {
-      "time": "2026-08-11T08:19:57.114155",
+      "time": "2026-08-11T08:24:57.665503",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3310
+      "count": 538
     },
     {
-      "time": "2026-08-11T08:19:57.127435",
+      "time": "2026-08-11T08:24:57.669628",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3311
+      "count": 539
     },
     {
-      "time": "2026-08-11T08:19:57.221797",
+      "time": "2026-08-11T08:24:57.765911",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3312
+      "count": 540
     },
     {
-      "time": "2026-08-11T08:19:57.225441",
+      "time": "2026-08-11T08:24:57.771082",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3313
+      "count": 541
     },
     {
-      "time": "2026-08-11T08:19:57.329937",
+      "time": "2026-08-11T08:24:57.875686",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3314
+      "count": 542
     },
     {
-      "time": "2026-08-11T08:19:57.333109",
+      "time": "2026-08-11T08:24:57.878833",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3315
+      "count": 543
     },
     {
-      "time": "2026-08-11T08:19:57.437417",
+      "time": "2026-08-11T08:24:57.983202",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3316
+      "count": 544
     },
     {
-      "time": "2026-08-11T08:19:57.440513",
+      "time": "2026-08-11T08:24:57.987149",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3317
+      "count": 545
     },
     {
-      "time": "2026-08-11T08:19:57.545023",
+      "time": "2026-08-11T08:24:58.091614",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3318
+      "count": 546
     },
     {
-      "time": "2026-08-11T08:19:57.549182",
+      "time": "2026-08-11T08:24:58.094857",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3319
+      "count": 547
     },
     {
-      "time": "2026-08-11T08:19:57.654234",
+      "time": "2026-08-11T08:24:58.198836",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3320
+      "count": 548
     },
     {
-      "time": "2026-08-11T08:19:57.658653",
+      "time": "2026-08-11T08:24:58.201758",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3321
+      "count": 549
     },
     {
-      "time": "2026-08-11T08:19:57.763710",
+      "time": "2026-08-11T08:24:58.305671",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3322
+      "count": 550
     },
     {
-      "time": "2026-08-11T08:19:57.768182",
+      "time": "2026-08-11T08:24:58.308512",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3323
+      "count": 551
     },
     {
-      "time": "2026-08-11T08:19:57.872608",
+      "time": "2026-08-11T08:24:58.412349",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3324
+      "count": 552
     },
     {
-      "time": "2026-08-11T08:19:57.876988",
+      "time": "2026-08-11T08:24:58.415460",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3325
+      "count": 553
     },
     {
-      "time": "2026-08-11T08:19:57.981962",
+      "time": "2026-08-11T08:24:58.513557",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3326
+      "count": 554
     },
     {
-      "time": "2026-08-11T08:19:57.985149",
+      "time": "2026-08-11T08:24:58.517213",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3327
+      "count": 555
     },
     {
-      "time": "2026-08-11T08:19:58.089345",
+      "time": "2026-08-11T08:24:58.621689",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3328
+      "count": 556
     },
     {
-      "time": "2026-08-11T08:19:58.092877",
+      "time": "2026-08-11T08:24:58.625101",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3329
+      "count": 557
     },
     {
-      "time": "2026-08-11T08:19:58.197769",
+      "time": "2026-08-11T08:24:58.723834",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3330
+      "count": 558
     },
     {
-      "time": "2026-08-11T08:19:58.202284",
+      "time": "2026-08-11T08:24:58.726957",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3331
+      "count": 559
     },
     {
-      "time": "2026-08-11T08:19:58.306758",
+      "time": "2026-08-11T08:24:58.831829",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3332
+      "count": 560
     },
     {
-      "time": "2026-08-11T08:19:58.309789",
+      "time": "2026-08-11T08:24:58.834893",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3333
+      "count": 561
     },
     {
-      "time": "2026-08-11T08:19:58.413870",
+      "time": "2026-08-11T08:24:58.939688",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3334
+      "count": 562
     },
     {
-      "time": "2026-08-11T08:19:58.417334",
+      "time": "2026-08-11T08:24:58.977604",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3335
+      "count": 563
     },
     {
-      "time": "2026-08-11T08:19:58.522585",
+      "time": "2026-08-11T08:24:59.041305",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3336
+      "count": 564
     },
     {
-      "time": "2026-08-11T08:19:58.526855",
+      "time": "2026-08-11T08:24:59.044274",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3337
+      "count": 565
     },
     {
-      "time": "2026-08-11T08:19:58.631531",
+      "time": "2026-08-11T08:24:59.148255",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3338
+      "count": 566
     },
     {
-      "time": "2026-08-11T08:19:58.634758",
+      "time": "2026-08-11T08:24:59.151966",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3339
+      "count": 567
     },
     {
-      "time": "2026-08-11T08:19:58.739038",
+      "time": "2026-08-11T08:24:59.256764",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3340
+      "count": 568
     },
     {
-      "time": "2026-08-11T08:19:58.742095",
+      "time": "2026-08-11T08:24:59.259721",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3341
+      "count": 569
     },
     {
-      "time": "2026-08-11T08:19:58.847285",
+      "time": "2026-08-11T08:24:59.363449",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3342
+      "count": 570
     },
     {
-      "time": "2026-08-11T08:19:58.850507",
+      "time": "2026-08-11T08:24:59.366543",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3343
+      "count": 571
     },
     {
-      "time": "2026-08-11T08:19:58.954578",
+      "time": "2026-08-11T08:24:59.470466",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3344
+      "count": 572
     },
     {
-      "time": "2026-08-11T08:19:58.957684",
+      "time": "2026-08-11T08:24:59.474655",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3345
+      "count": 573
     },
     {
-      "time": "2026-08-11T08:19:59.061626",
+      "time": "2026-08-11T08:24:59.579882",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3346
+      "count": 574
     },
     {
-      "time": "2026-08-11T08:19:59.064551",
+      "time": "2026-08-11T08:24:59.582730",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3347
+      "count": 575
     },
     {
-      "time": "2026-08-11T08:19:59.168311",
+      "time": "2026-08-11T08:24:59.686296",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3348
+      "count": 576
     },
     {
-      "time": "2026-08-11T08:19:59.171583",
+      "time": "2026-08-11T08:24:59.689713",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3349
+      "count": 577
     },
     {
-      "time": "2026-08-11T08:19:59.275603",
+      "time": "2026-08-11T08:24:59.793838",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3350
+      "count": 578
     },
     {
-      "time": "2026-08-11T08:19:59.279849",
+      "time": "2026-08-11T08:24:59.809676",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3351
+      "count": 579
     },
     {
-      "time": "2026-08-11T08:19:59.384789",
+      "time": "2026-08-11T08:24:59.895196",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3352
+      "count": 580
     },
     {
-      "time": "2026-08-11T08:19:59.389332",
+      "time": "2026-08-11T08:24:59.898171",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3353
+      "count": 581
     },
     {
-      "time": "2026-08-11T08:19:59.484614",
+      "time": "2026-08-11T08:25:00.002476",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3354
+      "count": 582
     },
     {
-      "time": "2026-08-11T08:19:59.487776",
+      "time": "2026-08-11T08:25:00.005457",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3355
+      "count": 583
     },
     {
-      "time": "2026-08-11T08:19:59.591971",
+      "time": "2026-08-11T08:25:00.109635",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3356
+      "count": 584
     },
     {
-      "time": "2026-08-11T08:19:59.595082",
+      "time": "2026-08-11T08:25:00.112819",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3357
+      "count": 585
     },
     {
-      "time": "2026-08-11T08:19:59.699583",
+      "time": "2026-08-11T08:25:00.217017",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3358
+      "count": 586
     },
     {
-      "time": "2026-08-11T08:19:59.702890",
+      "time": "2026-08-11T08:25:00.220282",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3359
+      "count": 587
     },
     {
-      "time": "2026-08-11T08:19:59.807201",
+      "time": "2026-08-11T08:25:00.326055",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3360
+      "count": 588
     },
     {
-      "time": "2026-08-11T08:19:59.810686",
+      "time": "2026-08-11T08:25:00.329229",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3361
+      "count": 589
     },
     {
-      "time": "2026-08-11T08:19:59.912670",
+      "time": "2026-08-11T08:25:00.433645",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3362
+      "count": 590
     },
     {
-      "time": "2026-08-11T08:19:59.918339",
+      "time": "2026-08-11T08:25:00.437116",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3363
+      "count": 591
     },
     {
-      "time": "2026-08-11T08:20:00.013764",
+      "time": "2026-08-11T08:25:00.541275",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3364
+      "count": 592
     },
     {
-      "time": "2026-08-11T08:20:00.018215",
+      "time": "2026-08-11T08:25:00.544449",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3365
+      "count": 593
     },
     {
-      "time": "2026-08-11T08:20:00.123565",
+      "time": "2026-08-11T08:25:00.648970",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3366
+      "count": 594
     },
     {
-      "time": "2026-08-11T08:20:00.127117",
+      "time": "2026-08-11T08:25:00.652282",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3367
+      "count": 595
     },
     {
-      "time": "2026-08-11T08:20:00.232462",
+      "time": "2026-08-11T08:25:00.756455",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3368
+      "count": 596
     },
     {
-      "time": "2026-08-11T08:20:00.237095",
+      "time": "2026-08-11T08:25:00.759811",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3369
+      "count": 597
     },
     {
-      "time": "2026-08-11T08:20:00.332795",
+      "time": "2026-08-11T08:25:00.863909",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3370
+      "count": 598
     },
     {
-      "time": "2026-08-11T08:20:00.337341",
+      "time": "2026-08-11T08:25:00.866896",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3371
+      "count": 599
     },
     {
-      "time": "2026-08-11T08:20:00.442672",
+      "time": "2026-08-11T08:25:00.970752",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3372
+      "count": 600
     },
     {
-      "time": "2026-08-11T08:20:00.445875",
+      "time": "2026-08-11T08:25:00.974250",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3373
+      "count": 601
     },
     {
-      "time": "2026-08-11T08:20:00.550315",
+      "time": "2026-08-11T08:25:01.079401",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3374
+      "count": 602
     },
     {
-      "time": "2026-08-11T08:20:00.554654",
+      "time": "2026-08-11T08:25:01.082826",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3375
+      "count": 603
     },
     {
-      "time": "2026-08-11T08:20:00.659746",
+      "time": "2026-08-11T08:25:01.186780",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3376
+      "count": 604
     },
     {
-      "time": "2026-08-11T08:20:00.662981",
+      "time": "2026-08-11T08:25:01.189711",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3377
+      "count": 605
     },
     {
-      "time": "2026-08-11T08:20:00.765314",
+      "time": "2026-08-11T08:25:01.294109",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3378
+      "count": 606
     },
     {
-      "time": "2026-08-11T08:20:00.770162",
+      "time": "2026-08-11T08:25:01.297612",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3379
+      "count": 607
     },
     {
-      "time": "2026-08-11T08:20:00.865783",
+      "time": "2026-08-11T08:25:01.401420",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3380
+      "count": 608
     },
     {
-      "time": "2026-08-11T08:20:00.870288",
+      "time": "2026-08-11T08:25:01.404407",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3381
+      "count": 609
     },
     {
-      "time": "2026-08-11T08:20:00.966057",
+      "time": "2026-08-11T08:25:01.508731",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3382
+      "count": 610
     },
     {
-      "time": "2026-08-11T08:20:00.970921",
+      "time": "2026-08-11T08:25:01.512080",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3383
+      "count": 611
     },
     {
-      "time": "2026-08-11T08:20:01.067152",
+      "time": "2026-08-11T08:25:01.616343",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3384
+      "count": 612
     },
     {
-      "time": "2026-08-11T08:20:01.071949",
+      "time": "2026-08-11T08:25:01.619608",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3385
+      "count": 613
     },
     {
-      "time": "2026-08-11T08:20:01.167386",
+      "time": "2026-08-11T08:25:01.724072",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3386
+      "count": 614
     },
     {
-      "time": "2026-08-11T08:20:01.170810",
+      "time": "2026-08-11T08:25:01.726994",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3387
+      "count": 615
     },
     {
-      "time": "2026-08-11T08:20:01.276451",
+      "time": "2026-08-11T08:25:01.831005",
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh",
-      "count": 3388
+      "count": 616
     },
     {
-      "time": "2026-08-11T08:20:01.281608",
+      "time": "2026-08-11T08:25:01.834266",
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md",
-      "count": 3389
+      "count": 617
     }
   ],
-  "total_violations": 3389,
-  "last_violation": "2026-08-11T08:20:01.281608"
+  "total_violations": 617,
+  "last_violation": "2026-08-11T08:25:01.834266"
 }

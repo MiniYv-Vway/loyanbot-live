@@ -10,3 +10,7 @@
 2026-08-11 08:03:42 - [Adapter] - INFO - [QQOfficial.bot] - Gateway 接入点获取成功: wss://api.sgroup.qq.com/websocket
 2026-08-11 08:03:42 - [Adapter] - INFO - [QQOfficial.gateway] - WebSocket 连接成功
 2026-08-11 08:03:42 - [Adapter] - INFO - [QQOfficial.gateway] - 心跳间隔: 41.25s
+2026-08-11 08:33:42 - [Adapter] - ERROR - [QQOfficial.gateway] - 连接异常: 收到重连指令
+2026-08-11 08:33:44 - [Adapter] - INFO - [QQOfficial.bot] - Gateway 接入点获取成功: wss://api.sgroup.qq.com/websocket
+2026-08-11 08:33:44 - [Adapter] - INFO - [QQOfficial.gateway] - WebSocket 连接成功
+2026-08-11 08:33:44 - [Adapter] - INFO - [QQOfficial.gateway] - 心跳间隔: 41.25s

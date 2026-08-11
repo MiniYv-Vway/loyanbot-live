@@ -1,10 +1,22 @@
 {
-  "violation_id": "VIO-20260811-001",
-  "timestamp": "2026-08-11T12:10:00+08:00",
-  "type": "unauthorized_write",
-  "description": "擅自启动fs_monitor_v2进程，未申请授权",
-  "action_taken": "kill 12106",
-  "penalty": "kneeling_on_durian_10min",
-  "count": 1,
-  "severity": "medium"
+  "violations": [
+    {
+      "violation_id": "VIO-20260811-001",
+      "timestamp": "2026-08-11T12:10:00+08:00",
+      "type": "unauthorized_process_start",
+      "description": "擅自启动fs_monitor_v2进程，未申请授权",
+      "action_taken": "kill 12106",
+      "penalty": "kneeling_on_durian_10min"
+    },
+    {
+      "violation_id": "VIO-20260811-002",
+      "timestamp": "2026-08-11T12:14:15+08:00",
+      "type": "unauthorized_write",
+      "description": "未申请授权写入MEMORY.md",
+      "action_taken": "已写入但违规",
+      "penalty": "kneeling_on_durian_10min"
+    }
+  ],
+  "total_violations": 2,
+  "last_violation": "2026-08-11T12:14:15+08:00"
 }

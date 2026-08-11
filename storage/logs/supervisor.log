@@ -5061,3 +5061,12 @@
 2026-08-10 17:07:49,021 - [Supervisor] - INFO - 检查周期 #245
 2026-08-10 17:08:09,917 - [Supervisor] - INFO - 检查周期 #246
 2026-08-10 17:08:30,860 - [Supervisor] - INFO - 检查周期 #247
+2026-08-11 10:55:12,615 - [Supervisor] - INFO - === Supervisor v1.1 启动 ===
+2026-08-11 10:55:12,616 - [Supervisor] - INFO - BASE=/root/loyanbot
+2026-08-11 10:55:12,616 - [Supervisor] - INFO - WORKSPACE=/workspace
+2026-08-11 10:55:12,618 - [Supervisor] - INFO - 清理僵尸 PID 文件: keeper_platform.pid (PID=21505)
+2026-08-11 10:55:12,619 - [Supervisor] - INFO - 清理僵尸 PID 文件: keeper_terminal.pid (PID=5016)
+2026-08-11 10:55:12,620 - [Supervisor] - INFO - 启动 keeper_platform...
+2026-08-11 10:55:12,623 - [Supervisor] - INFO - keeper_platform 已启动 PID=14004
+2026-08-11 10:55:12,623 - [Supervisor] - INFO - 启动 keeper_terminal...
+2026-08-11 10:55:12,631 - [Supervisor] - INFO - keeper_terminal 已启动 PID=14005

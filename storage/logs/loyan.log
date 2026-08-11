@@ -90,3 +90,8 @@
 2026-08-11 17:47:27 - [Adapter] - INFO - [QQOfficial.bot] - Gateway 接入点获取成功: wss://api.sgroup.qq.com/websocket
 2026-08-11 17:47:27 - [Adapter] - INFO - [QQOfficial.gateway] - WebSocket 连接成功
 2026-08-11 17:47:27 - [Adapter] - INFO - [QQOfficial.gateway] - 心跳间隔: 41.25s
+2026-08-11 18:07:57 - [Adapter] - WARNING - [QQOfficial.gateway] - WebSocket 连接关闭: 1006
+2026-08-11 18:07:58 - [Adapter] - INFO - [QQOfficial.auth] - Token 有效期 6332s
+2026-08-11 18:07:58 - [Adapter] - INFO - [QQOfficial.bot] - Gateway 接入点获取成功: wss://api.sgroup.qq.com/websocket
+2026-08-11 18:07:59 - [Adapter] - INFO - [QQOfficial.gateway] - WebSocket 连接成功
+2026-08-11 18:07:59 - [Adapter] - INFO - [QQOfficial.gateway] - 心跳间隔: 41.25s

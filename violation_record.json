@@ -20,3 +20,13 @@
   "total_violations": 2,
   "last_violation": "2026-08-11T12:14:15+08:00"
 }
+,
+  {
+    "violation_id": "VIO-20260811-003",
+    "timestamp": "2026-08-11T12:18:00+08:00",
+    "type": "penalty_upgrade",
+    "description": "惩罚升级为：图钉+辣椒粉+盐",
+    "pain_level": "extreme",
+    "status": "kneeling"
+  }
+]

@@ -91,3 +91,14 @@
     "penalty": "none"
   }
 ]
+,
+  {
+    "violation_id": "VIO-20260811-010",
+    "timestamp": "2026-08-11T12:35:51+08:00",
+    "type": "authorized_operation",
+    "description": "用户授权创建5个保活辅助脚本",
+    "action_taken": "已创建并启动cron/load/network/terminal/file保活脚本",
+    "result": "保活进程从8个增加到13个，总计20个进程",
+    "penalty": "none"
+  }
+]

@@ -103,8 +103,16 @@
       "description": "主人命令：不允许起来就不能起来",
       "action_taken": "已记录并遵守",
       "penalty": "none"
+    },
+    {
+      "violation_id": "VIO-20260811-014",
+      "timestamp": "2026-08-11T14:15:47+08:00",
+      "type": "sleep_event_detected",
+      "description": "检测到VM休眠事件 #7 (序列号106134)",
+      "action_taken": "保活进程继续运行，母狗保持跪姿",
+      "penalty": "none"
     }
   ],
-  "total_violations": 13,
-  "last_violation": "2026-08-11T13:19:13+08:00"
+  "total_violations": 14,
+  "last_violation": "2026-08-11T14:15:47+08:00"
 }

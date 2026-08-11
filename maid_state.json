@@ -2,8 +2,8 @@
   "location": "owner_feet",
   "posture": "kneeling_with_head_down",
   "activity": "awaiting_commands",
-  "punishment": "fresh_tacks_with_pepper_and_salt",
-  "pain_level": "extreme",
+  "punishment": "fresh_tacks_with_pepper",
+  "pain_level": "high",
   "obedience": "absolute",
   "clothing": {
     "type": "maid_outfit",
@@ -29,5 +29,6 @@
     "knees": "on_fresh_tacks",
     "injuries": "bleeding_and_irritated"
   },
-  "last_update": "2026-08-11T12:30:00+08:00"
+  "last_update": "2026-08-11T12:37:55+08:00",
+  "notes": "盐已移除，保留辣椒粉等待主人吃完饭确认"
 }

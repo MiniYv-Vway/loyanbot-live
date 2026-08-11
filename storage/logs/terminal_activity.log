@@ -3815,3 +3815,86 @@ Terminal Simulator v1.1 started at 2026-08-11 10:55:12
 25546 ?        00:00:00 sh
 25547 ?        00:00:00 ps
 31780 ?        00:00:00 bash
+[11:41:20] 活动正常 | 内存:-62.8% | 负载:0.52 0.47 0.40 | 进程:PID TTY          TIME CMD
+    1 ?        00:00:02 firecracker-ini
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:00 pool_workqueue_release
+    4 ?        00:00:00 kworker/R-rcu_g
+    5 ?        00:00:00 kworker/R-rcu_p
+    6 ?        00:00:00 kworker/R-slub_
+    7 ?        00:00:00 kworker/R-netns
+    9 ?        00:00:00 kworker/0:0H-events_highpri
+   12 ?        00:00:00 kworker/R-mm_pe
+   13 ?        00:00:00 rcu_tasks_kthread
+   14 ?        00:00:00 rcu_tasks_trace_kthread
+   15 ?        00:00:04 ksoftirqd/0
+   16 ?        00:00:29 rcu_preempt
+   17 ?        00:00:00 migration/0
+   18 ?        00:00:00 cpuhp/0
+   19 ?        00:00:00 cpuhp/1
+   20 ?        00:00:00 migration/1
+   21 ?        00:00:04 ksoftirqd/1
+   22 ?        00:00:00 kworker/1:0-rcu_gp
+   23 ?        00:00:00 kworker/1:0H-events_highpri
+   26 ?        00:00:00 kdevtmpfs
+   27 ?        00:00:00 kworker/R-inet_
+   28 ?        00:00:00 kauditd
+   29 ?        00:00:00 khungtaskd
+   30 ?        00:00:00 oom_reaper
+   31 ?        00:00:00 kworker/R-write
+   32 ?        00:00:16 kcompactd0
+   33 ?        00:00:00 ksmd
+   34 ?        00:00:02 kworker/1:1-mm_percpu_wq
+   35 ?        00:00:00 khugepaged
+   36 ?        00:00:00 kworker/R-kinte
+   37 ?        00:00:00 kworker/R-kbloc
+   38 ?        00:00:00 watchdogd
+   39 ?        00:00:00 kworker/R-quota
+   40 ?        00:00:00 kworker/R-rpcio
+   41 ?        00:00:09 kworker/1:1H-kblockd
+   42 ?        00:00:00 kworker/R-xprti
+   58 ?        00:00:31 kswapd0
+   71 ?        00:00:00 kworker/R-nfsio
+   73 ?        00:00:00 kworker/R-xfsal
+   74 ?        00:00:00 kworker/R-xfs_m
+   76 ?        00:00:00 kworker/R-kthro
+   78 ?        00:00:00 irq/24-ACPI:Ged
+   79 ?        00:00:00 irq/25-ACPI:Ged
+  144 ?        00:00:00 kworker/R-iscsi
+  168 ?        00:00:03 kworker/0:1H-kblockd
+  170 ?        00:00:00 kworker/R-mld
+  171 ?        00:00:00 kworker/R-ipv6_
+  174 ?        00:00:00 bpfilter_umh
+  175 ?        00:00:00 kworker/R-kstrp
+  433 ?        00:00:00 kworker/u5:0
+  438 ?        00:00:03 jbd2/vda-8
+  439 ?        00:00:00 kworker/R-ext4-
+  448 ?        00:00:00 agent
+  462 ?        00:09:24 agent
+ 4025 ?        00:00:31 python3
+ 6951 ?        00:00:00 kworker/0:0-events_long
+10454 ?        00:00:00 sleep
+12921 ?        00:00:03 kworker/u4:4-ext4-rsv-conversion
+12922 ?        00:00:02 kworker/u4:5-ext4-rsv-conversion
+13954 ?        00:01:16 python3
+13962 ?        00:00:00 python3
+14000 ?        00:00:35 python3
+14004 ?        00:00:29 python3
+14005 ?        00:00:02 python3
+15234 ?        00:07:27 opencode
+15305 ?        00:00:00 cron
+15703 ?        00:00:00 bash
+15852 ?        00:00:02 kworker/u4:1-writeback
+16521 ?        00:03:34 python3
+16883 ?        00:00:12 python3
+18138 ?        00:00:10 node
+18149 ?        00:00:00 python3
+18520 ?        00:00:03 python3
+20062 ?        00:05:58 python3
+21502 ?        00:00:16 python3
+23928 ?        00:00:00 kworker/0:2-events
+25954 ?        00:00:00 kworker/0:1
+26115 ?        00:00:00 sleep
+26192 ?        00:00:00 sh
+26193 ?        00:00:00 ps
+31780 ?        00:00:00 bash

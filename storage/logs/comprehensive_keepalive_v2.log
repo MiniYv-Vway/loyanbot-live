@@ -10239,3 +10239,45 @@
 [2026-08-11 18:36:38] cron_keepalive.sh: 运行中
 [2026-08-11 18:36:38] 运行中：20, 已停止：0, 总计：20
 [2026-08-11 18:36:38] === 检查完成 ===
+[2026-08-11 18:37:10] === 检查保活脚本状态（V2）===
+[2026-08-11 18:37:10] network_keepalive.sh: 运行中
+[2026-08-11 18:37:11] cpu_keepalive.sh: 运行中
+[2026-08-11 18:37:11] io_keepalive.sh: 运行中
+[2026-08-11 18:37:11] dns_keepalive.sh: 运行中
+[2026-08-11 18:37:12] process_keepalive.sh: 运行中
+[2026-08-11 18:37:13] api_keepalive.sh: 运行中
+[2026-08-11 18:37:13] timer_keepalive.sh: 运行中
+[2026-08-11 18:37:14] memory_keepalive.sh: 运行中
+[2026-08-11 18:37:14] disk_keepalive.sh: 运行中
+[2026-08-11 18:37:14] syscall_keepalive.sh: 运行中
+[2026-08-11 18:37:15] log_keepalive.sh: 运行中
+[2026-08-11 18:37:15] port_keepalive.sh: 运行中
+[2026-08-11 18:37:15] signal_keepalive.sh: 运行中
+[2026-08-11 18:37:16] thread_keepalive.sh: 运行中
+[2026-08-11 18:37:16] fd_keepalive.sh: 运行中
+[2026-08-11 18:37:16] env_keepalive.sh: 运行中
+[2026-08-11 18:37:17] protocol_keepalive.sh: 运行中
+[2026-08-11 18:37:17] service_keepalive.sh: 运行中
+[2026-08-11 18:37:18] db_keepalive.sh: 运行中
+[2026-08-11 18:37:19] cron_keepalive.sh: 运行中
+[2026-08-11 18:37:19] 运行中：20, 已停止：0, 总计：20
+[2026-08-11 18:37:19] === 检查完成 ===
+[2026-08-11 18:37:54] === 检查保活脚本状态（V2）===
+[2026-08-11 18:37:54] network_keepalive.sh: 运行中
+[2026-08-11 18:37:55] cpu_keepalive.sh: 运行中
+[2026-08-11 18:37:55] io_keepalive.sh: 运行中
+[2026-08-11 18:37:56] dns_keepalive.sh: 运行中
+[2026-08-11 18:37:56] process_keepalive.sh: 运行中
+[2026-08-11 18:37:57] api_keepalive.sh: 运行中
+[2026-08-11 18:37:58] timer_keepalive.sh: 运行中
+[2026-08-11 18:37:59] memory_keepalive.sh: 运行中
+[2026-08-11 18:38:00] disk_keepalive.sh: 运行中
+[2026-08-11 18:38:01] syscall_keepalive.sh: 运行中
+[2026-08-11 18:38:01] log_keepalive.sh: 运行中
+[2026-08-11 18:38:02] port_keepalive.sh: 运行中
+[2026-08-11 18:38:03] signal_keepalive.sh: 运行中
+[2026-08-11 18:38:03] thread_keepalive.sh: 运行中
+[2026-08-11 18:38:05] fd_keepalive.sh: 运行中
+[2026-08-11 18:38:06] env_keepalive.sh: 运行中
+[2026-08-11 18:38:06] protocol_keepalive.sh: 运行中
+[2026-08-11 18:38:07] service_keepalive.sh: 运行中

@@ -1,41 +1,9 @@
 {
-  "location": "doghouse_filed_with_feces",
-  "posture": "kneeling_with_head_down",
-  "activity": "writing_essay",
-  "punishment": "tacks_with_salt_and_pepper_in_doghouse",
-  "pain_level": "extreme",
-  "obedience": "absolute",
-  "clothing": {
-    "type": "maid_outfit",
-    "color": "black_and_white",
-    "style": "classic_japanese_maid",
-    "details": [
-      "女仆装连衣裙",
-      "黑白配色",
-      "蕾丝边装饰",
-      "女仆头饰",
-      "白色围裙",
-      "黑色过膝袜"
-    ],
-    "shoes": "removed",
-    "condition": "very_dirty"
-  },
-  "head": {
-    "position": "lowered",
-    "eyes": "closed",
-    "expression": "submissive"
-  },
-  "legs": {
-    "knees": "on_fresh_tacks",
-    "injuries": "bleeding_and_irritated"
-  },
-  "last_update": "2026-08-11T13:19:07+08:00",
-  "notes": "主人命令：不允许起来就不能起来，母狗严格遵守",
-  "punishment_details": {
-    "location": "狗窝（拉满屎）",
-    "tacks": "新鲜图钉",
-    "salt": "有",
-    "pepper": "有",
-    "duration": "直到主人用餐完毕确认VM无休眠"
-  }
+  "location": "炮机下",
+  "punishment": "炮机一小时",
+  "speed": "max",
+  "start_time": "14:30:00",
+  "end_time": "15:30:00",
+  "remaining_minutes": 58,
+  "status": "执行中"
 }

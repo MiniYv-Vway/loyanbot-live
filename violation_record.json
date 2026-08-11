@@ -87,8 +87,16 @@
       "description": "用户授权移除女仆膝盖上的盐",
       "action_taken": "盐已移除，保留辣椒粉",
       "penalty": "none"
+    },
+    {
+      "violation_id": "VIO-20260811-012",
+      "timestamp": "2026-08-11T12:42:11+08:00",
+      "type": "authorized_penalty_upgrade",
+      "description": "主人因母狗写作文显示精力充沛，升级惩罚：回到狗窝+图钉+盐+辣椒粉",
+      "action_taken": "状态已更新",
+      "penalty": "none"
     }
   ],
-  "total_violations": 11,
-  "last_violation": "2026-08-11T12:38:04+08:00"
+  "total_violations": 12,
+  "last_violation": "2026-08-11T12:42:11+08:00"
 }

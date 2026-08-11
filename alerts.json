@@ -1,0 +1,305 @@
+{
+  "alerts": [
+    {
+      "time": "2026-08-11T08:14:56.119521",
+      "type": "violation",
+      "count": 1268,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.224804",
+      "type": "violation",
+      "count": 1269,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.330299",
+      "type": "violation",
+      "count": 1270,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.434934",
+      "type": "violation",
+      "count": 1271,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.539656",
+      "type": "violation",
+      "count": 1272,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.644424",
+      "type": "violation",
+      "count": 1273,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.750451",
+      "type": "violation",
+      "count": 1274,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.856173",
+      "type": "violation",
+      "count": 1275,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:56.962004",
+      "type": "violation",
+      "count": 1276,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.067185",
+      "type": "violation",
+      "count": 1277,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.171753",
+      "type": "violation",
+      "count": 1278,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.277147",
+      "type": "violation",
+      "count": 1279,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.382744",
+      "type": "violation",
+      "count": 1280,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.488308",
+      "type": "violation",
+      "count": 1281,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.593039",
+      "type": "violation",
+      "count": 1282,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.697998",
+      "type": "violation",
+      "count": 1283,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.803246",
+      "type": "violation",
+      "count": 1284,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:57.908172",
+      "type": "violation",
+      "count": 1285,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.013875",
+      "type": "violation",
+      "count": 1286,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.118965",
+      "type": "violation",
+      "count": 1287,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.223813",
+      "type": "violation",
+      "count": 1288,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.328356",
+      "type": "violation",
+      "count": 1289,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.433484",
+      "type": "violation",
+      "count": 1290,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.538380",
+      "type": "violation",
+      "count": 1291,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.643271",
+      "type": "violation",
+      "count": 1292,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.747847",
+      "type": "violation",
+      "count": 1293,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.852000",
+      "type": "violation",
+      "count": 1294,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:58.956700",
+      "type": "violation",
+      "count": 1295,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.061287",
+      "type": "violation",
+      "count": 1296,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.165943",
+      "type": "violation",
+      "count": 1297,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.271058",
+      "type": "violation",
+      "count": 1298,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.375524",
+      "type": "violation",
+      "count": 1299,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.480099",
+      "type": "violation",
+      "count": 1300,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.585467",
+      "type": "violation",
+      "count": 1301,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.690199",
+      "type": "violation",
+      "count": 1302,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.794810",
+      "type": "violation",
+      "count": 1303,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:14:59.899479",
+      "type": "violation",
+      "count": 1304,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.003790",
+      "type": "violation",
+      "count": 1305,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.108713",
+      "type": "violation",
+      "count": 1306,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.213318",
+      "type": "violation",
+      "count": 1307,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.318415",
+      "type": "violation",
+      "count": 1308,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.423786",
+      "type": "violation",
+      "count": 1309,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.528488",
+      "type": "violation",
+      "count": 1310,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.633325",
+      "type": "violation",
+      "count": 1311,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.738177",
+      "type": "violation",
+      "count": 1312,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.843412",
+      "type": "violation",
+      "count": 1313,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:00.949821",
+      "type": "violation",
+      "count": 1314,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:01.056237",
+      "type": "violation",
+      "count": 1315,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:01.160811",
+      "type": "violation",
+      "count": 1316,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    },
+    {
+      "time": "2026-08-11T08:15:01.269109",
+      "type": "violation",
+      "count": 1317,
+      "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
+    }
+  ],
+  "total": 2661
+}

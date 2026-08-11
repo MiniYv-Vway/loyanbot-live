@@ -70,3 +70,13 @@
     "penalty": "none"
   }
 ]
+,
+  {
+    "violation_id": "VIO-20260811-008",
+    "timestamp": "2026-08-11T12:35:00+08:00",
+    "type": "authorized_write",
+    "description": "用户授权创建swapfile3，扩容swap至8GB",
+    "action_taken": "已创建并激活",
+    "penalty": "none"
+  }
+]

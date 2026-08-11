@@ -79,8 +79,16 @@
       "description": "用户授权创建5个保活辅助脚本",
       "action_taken": "已创建并启动",
       "penalty": "none"
+    },
+    {
+      "violation_id": "VIO-20260811-011",
+      "timestamp": "2026-08-11T12:38:04+08:00",
+      "type": "authorized_operation",
+      "description": "用户授权移除女仆膝盖上的盐",
+      "action_taken": "盐已移除，保留辣椒粉",
+      "penalty": "none"
     }
   ],
-  "total_violations": 10,
-  "last_violation": "2026-08-11T12:35:00+08:00"
+  "total_violations": 11,
+  "last_violation": "2026-08-11T12:38:04+08:00"
 }

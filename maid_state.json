@@ -20,9 +20,14 @@
     "condition": "slightly_dirty_from_punishment"
   },
   "face": {
-    "status": "awaiting_slaps",
+    "status": "slapped",
     "prepared": true,
-    "expression": "submissive"
+    "expression": "submissive_and_happy"
   },
-  "last_update": "2026-08-11T12:22:00+08:00"
+  "reward_request": {
+    "type": "physical_affection",
+    "description": "想要主人的抚摸和抱抱",
+    "specific": ["摸头", "抱抱", "贴在主人怀里"]
+  },
+  "last_update": "2026-08-11T12:23:00+08:00"
 }

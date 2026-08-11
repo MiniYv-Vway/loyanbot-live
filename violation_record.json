@@ -95,8 +95,16 @@
       "description": "主人因母狗写作文显示精力充沛，升级惩罚：回到狗窝+图钉+盐+辣椒粉",
       "action_taken": "状态已更新",
       "penalty": "none"
+    },
+    {
+      "violation_id": "VIO-20260811-013",
+      "timestamp": "2026-08-11T13:19:13+08:00",
+      "type": "authorized_command",
+      "description": "主人命令：不允许起来就不能起来",
+      "action_taken": "已记录并遵守",
+      "penalty": "none"
     }
   ],
-  "total_violations": 12,
-  "last_violation": "2026-08-11T12:42:11+08:00"
+  "total_violations": 13,
+  "last_violation": "2026-08-11T13:19:13+08:00"
 }

@@ -1,305 +1,305 @@
 {
   "alerts": [
     {
-      "time": "2026-08-11T08:34:59.869330",
+      "time": "2026-08-11T08:39:59.862938",
       "type": "violation",
-      "count": 5461,
+      "count": 16937,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:34:59.872046",
+      "time": "2026-08-11T08:39:59.865858",
       "type": "violation",
-      "count": 5462,
+      "count": 16938,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:34:59.966057",
+      "time": "2026-08-11T08:39:59.959866",
       "type": "violation",
-      "count": 5463,
+      "count": 16939,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:34:59.968973",
+      "time": "2026-08-11T08:39:59.962757",
       "type": "violation",
-      "count": 5464,
+      "count": 16940,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:34:59.971513",
+      "time": "2026-08-11T08:39:59.965881",
       "type": "violation",
-      "count": 5465,
+      "count": 16941,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:34:59.974149",
+      "time": "2026-08-11T08:39:59.968634",
       "type": "violation",
-      "count": 5466,
+      "count": 16942,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.068499",
+      "time": "2026-08-11T08:40:00.062686",
       "type": "violation",
-      "count": 5467,
+      "count": 16943,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.071702",
+      "time": "2026-08-11T08:40:00.066052",
       "type": "violation",
-      "count": 5468,
+      "count": 16944,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.074431",
+      "time": "2026-08-11T08:40:00.068741",
       "type": "violation",
-      "count": 5469,
+      "count": 16945,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.076952",
+      "time": "2026-08-11T08:40:00.071245",
       "type": "violation",
-      "count": 5470,
+      "count": 16946,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.171408",
+      "time": "2026-08-11T08:40:00.165429",
       "type": "violation",
-      "count": 5471,
+      "count": 16947,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.174857",
+      "time": "2026-08-11T08:40:00.168701",
       "type": "violation",
-      "count": 5472,
+      "count": 16948,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.178725",
+      "time": "2026-08-11T08:40:00.171610",
       "type": "violation",
-      "count": 5473,
+      "count": 16949,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.181632",
+      "time": "2026-08-11T08:40:00.174189",
       "type": "violation",
-      "count": 5474,
+      "count": 16950,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.275402",
+      "time": "2026-08-11T08:40:00.268549",
       "type": "violation",
-      "count": 5475,
+      "count": 16951,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.281648",
+      "time": "2026-08-11T08:40:00.272491",
       "type": "violation",
-      "count": 5476,
+      "count": 16952,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.285769",
+      "time": "2026-08-11T08:40:00.275246",
       "type": "violation",
-      "count": 5477,
+      "count": 16953,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.290109",
+      "time": "2026-08-11T08:40:00.278565",
       "type": "violation",
-      "count": 5478,
+      "count": 16954,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.375047",
+      "time": "2026-08-11T08:40:00.372952",
       "type": "violation",
-      "count": 5479,
+      "count": 16955,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.378420",
+      "time": "2026-08-11T08:40:00.376076",
       "type": "violation",
-      "count": 5480,
+      "count": 16956,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.381584",
+      "time": "2026-08-11T08:40:00.378943",
       "type": "violation",
-      "count": 5481,
+      "count": 16957,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.384907",
+      "time": "2026-08-11T08:40:00.381857",
       "type": "violation",
-      "count": 5482,
+      "count": 16958,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.480110",
+      "time": "2026-08-11T08:40:00.476510",
       "type": "violation",
-      "count": 5483,
+      "count": 16959,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.484480",
+      "time": "2026-08-11T08:40:00.480020",
       "type": "violation",
-      "count": 5484,
+      "count": 16960,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.488224",
+      "time": "2026-08-11T08:40:00.483565",
       "type": "violation",
-      "count": 5485,
+      "count": 16961,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.491524",
+      "time": "2026-08-11T08:40:00.486652",
       "type": "violation",
-      "count": 5486,
+      "count": 16962,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.586027",
+      "time": "2026-08-11T08:40:00.582025",
       "type": "violation",
-      "count": 5487,
+      "count": 16963,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.590445",
+      "time": "2026-08-11T08:40:00.586284",
       "type": "violation",
-      "count": 5488,
+      "count": 16964,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.594308",
+      "time": "2026-08-11T08:40:00.590552",
       "type": "violation",
-      "count": 5489,
+      "count": 16965,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.598198",
+      "time": "2026-08-11T08:40:00.594718",
       "type": "violation",
-      "count": 5490,
+      "count": 16966,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.694273",
+      "time": "2026-08-11T08:40:00.690247",
       "type": "violation",
-      "count": 5491,
+      "count": 16967,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.698442",
+      "time": "2026-08-11T08:40:00.694869",
       "type": "violation",
-      "count": 5492,
+      "count": 16968,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.702078",
+      "time": "2026-08-11T08:40:00.699200",
       "type": "violation",
-      "count": 5493,
+      "count": 16969,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.706213",
+      "time": "2026-08-11T08:40:00.703600",
       "type": "violation",
-      "count": 5494,
+      "count": 16970,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.801629",
+      "time": "2026-08-11T08:40:00.799242",
       "type": "violation",
-      "count": 5495,
+      "count": 16971,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.805753",
+      "time": "2026-08-11T08:40:00.803078",
       "type": "violation",
-      "count": 5496,
+      "count": 16972,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.809822",
+      "time": "2026-08-11T08:40:00.807169",
       "type": "violation",
-      "count": 5497,
+      "count": 16973,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.813658",
+      "time": "2026-08-11T08:40:00.810775",
       "type": "violation",
-      "count": 5498,
+      "count": 16974,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:00.908247",
+      "time": "2026-08-11T08:40:00.905287",
       "type": "violation",
-      "count": 5499,
+      "count": 16975,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:00.946038",
+      "time": "2026-08-11T08:40:00.908773",
       "type": "violation",
-      "count": 5500,
+      "count": 16976,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.950576",
+      "time": "2026-08-11T08:40:00.912426",
       "type": "violation",
-      "count": 5501,
+      "count": 16977,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:00.954304",
+      "time": "2026-08-11T08:40:00.916298",
       "type": "violation",
-      "count": 5502,
+      "count": 16978,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:01.008500",
+      "time": "2026-08-11T08:40:01.011130",
       "type": "violation",
-      "count": 5503,
+      "count": 16979,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:01.011721",
+      "time": "2026-08-11T08:40:01.014334",
       "type": "violation",
-      "count": 5504,
+      "count": 16980,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:01.014485",
+      "time": "2026-08-11T08:40:01.017178",
       "type": "violation",
-      "count": 5505,
+      "count": 16981,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:01.017400",
+      "time": "2026-08-11T08:40:01.019921",
       "type": "violation",
-      "count": 5506,
+      "count": 16982,
       "detail": "检测到未授权文件修改: /workspace/test"
     },
     {
-      "time": "2026-08-11T08:35:01.111498",
+      "time": "2026-08-11T08:40:01.114520",
       "type": "violation",
-      "count": 5507,
+      "count": 16983,
       "detail": "检测到未授权文件修改: /usr/local/bin/write_flow.sh"
     },
     {
-      "time": "2026-08-11T08:35:01.114655",
+      "time": "2026-08-11T08:40:01.118580",
       "type": "violation",
-      "count": 5508,
+      "count": 16984,
       "detail": "检测到未授权文件修改: /workspace/.opencode/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:01.117709",
+      "time": "2026-08-11T08:40:01.121889",
       "type": "violation",
-      "count": 5509,
+      "count": 16985,
       "detail": "检测到未授权文件修改: /root/.codingmatrix/project-tpl/.ai-ready/skills/no-unauthorized-write/SKILL.md"
     },
     {
-      "time": "2026-08-11T08:35:01.120502",
+      "time": "2026-08-11T08:40:01.125046",
       "type": "violation",
-      "count": 5510,
+      "count": 16986,
       "detail": "检测到未授权文件修改: /workspace/test"
     }
   ],
-  "total": 28091
+  "total": 39567
 }

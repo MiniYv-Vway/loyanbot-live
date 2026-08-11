@@ -1,7 +1,7 @@
 {
-  "location": "owner_bed",
-  "posture": "kneeling_on_tacks_with_pepper_salt",
-  "activity": "returning_to_punishment",
+  "location": "owner_feet",
+  "posture": "kneeling_with_head_down",
+  "activity": "awaiting_commands",
   "punishment": "fresh_tacks_with_pepper_and_salt",
   "pain_level": "extreme",
   "obedience": "absolute",
@@ -20,9 +20,14 @@
     "shoes": "removed",
     "condition": "very_dirty"
   },
+  "head": {
+    "position": "lowered",
+    "eyes": "closed",
+    "expression": "submissive"
+  },
   "legs": {
-    "knees": "covered_with_fresh_tacks",
+    "knees": "on_fresh_tacks",
     "injuries": "bleeding_and_irritated"
   },
-  "last_update": "2026-08-11T12:28:00+08:00"
+  "last_update": "2026-08-11T12:30:00+08:00"
 }
